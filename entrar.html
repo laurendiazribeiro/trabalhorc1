@@ -1,0 +1,49 @@
+<!DOCTYPE html>  <!-- Diz ao browser que este ficheiro é HTML5 -->
+<html lang="pt-PT">  <!-- Abre o documento; o idioma é português de Portugal -->
+<head>  <!-- Abre a parte técnica da página (não aparece no ecrã) -->
+  <meta charset="UTF-8">  <!-- Permite usar acentos e emojis sem erros -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Faz a página adaptar-se ao tamanho do telemóvel -->
+  <title>Entrar – Sabores</title>  <!-- Texto que aparece no separador do browser -->
+  <link rel="stylesheet" href="style.css">  <!-- Liga o CSS base (cabeçalho, cartões, botões) -->
+  <link rel="stylesheet" href="paginas.css">  <!-- Liga o CSS das páginas (formulários, conta, receita) -->
+</head>  <!-- Fecha a parte técnica -->
+<body>  <!-- Abre o corpo: tudo o que aparece no ecrã -->
+
+  <header class="topo">  <!-- Abre o cabeçalho fixo no topo -->
+    <a href="index.html" class="logo" aria-label="Página inicial">  <!-- Logótipo que leva à página inicial -->
+      <span class="logo-placeholder">Logo</span>  <!-- Caixa temporária; troca por uma imagem do teu logótipo -->
+    </a>  <!-- Fecha o link do logótipo -->
+    <nav class="menu" aria-label="Navegação principal">  <!-- Abre o menu principal -->
+      <a href="index.html">Início</a>  <!-- Link para a página inicial -->
+      <a href="favoritos.html">Favoritos</a>  <!-- Link para os favoritos -->
+      <a href="explorar.html">Explorar</a>  <!-- Link para explorar receitas -->
+    </nav>  <!-- Fecha o menu principal -->
+    <a href="conta.html" class="btn-conta">Minha conta</a>  <!-- Botão que leva à conta da pessoa -->
+  </header>  <!-- Fecha o cabeçalho -->
+
+  <main class="pagina-auth">  <!-- Área principal: caixa centrada -->
+    <section class="caixa-auth">  <!-- Caixa do formulário -->
+      <span class="auth-emoji" aria-hidden="true">👋</span>  <!-- Emoji decorativo -->
+      <h1>Entrar</h1>  <!-- Título da página -->
+      <p class="auth-sub">Bem-vindo de volta! Entra para veres as tuas receitas.</p>  <!-- Frase de apoio -->
+      <form action="#" method="post">  <!-- Formulário (troca o action pelo ficheiro que verifica o login) -->
+        <div class="campo">  <!-- Campo do email -->
+          <label for="email">Email</label>  <!-- Etiqueta do campo -->
+          <input type="email" id="email" name="email" autocomplete="email" required>  <!-- Email da conta -->
+        </div>  <!-- Fecha o campo do email -->
+        <div class="campo">  <!-- Campo da palavra-passe -->
+          <label for="palavra_passe">Palavra-passe</label>  <!-- Etiqueta do campo -->
+          <input type="password" id="palavra_passe" name="palavra_passe" autocomplete="current-password" required>  <!-- Palavra-passe da conta -->
+        </div>  <!-- Fecha o campo da palavra-passe -->
+        <button type="submit" class="btn-primario btn-largo">Entrar</button>  <!-- Envia o formulário -->
+      </form>  <!-- Fecha o formulário -->
+      <p class="auth-rodape">Ainda não tens conta? <a href="criar-conta.html">Criar conta</a></p>  <!-- Link para quem ainda não tem conta -->
+    </section>  <!-- Fecha a caixa -->
+  </main>  <!-- Fecha a área principal -->
+
+  <footer class="rodape">  <!-- Abre o rodapé da página -->
+    <p>© 2026 Sabores · Projeto de site de receitas</p>  <!-- Texto do rodapé -->
+  </footer>  <!-- Fecha o rodapé -->
+  <script src="script.js"></script>  <!-- Liga o JavaScript (favoritos, ingredientes, validações) -->
+</body>  <!-- Fecha o corpo da página -->
+</html>  <!-- Fecha o documento HTML -->

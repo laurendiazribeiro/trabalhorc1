@@ -1,0 +1,429 @@
+/* ===== Sabores – estilos base do site (usados em todas as páginas) ===== */
+
+:root {  /* Variáveis globais: mudar um valor aqui muda o site todo */
+  --cor-fundo: #fbf7f2;  /* Cor de fundo das páginas (creme) */
+  --cor-superficie: #ffffff;  /* Cor dos cartões e caixas (branco) */
+  --cor-texto: #2b2420;  /* Cor principal do texto (castanho escuro) */
+  --cor-texto-suave: #7a6e66;  /* Cor do texto secundário */
+  --cor-primaria: #d9531e;  /* Cor de destaque (laranja) */
+  --cor-primaria-escura: #b8420f;  /* Laranja mais escuro, usado ao passar o rato */
+  --cor-realce: #fde9dd;  /* Laranja muito claro para fundos de destaque */
+  --cor-borda: #eadfd3;  /* Cor das linhas e contornos */
+  --raio: 16px;  /* Arredondamento padrão dos cantos */
+  --sombra: 0 2px 10px rgba(60, 40, 20, 0.08);  /* Sombra suave normal */
+  --sombra-hover: 0 8px 22px rgba(60, 40, 20, 0.14);  /* Sombra maior ao passar o rato */
+}  /* Fecha as variáveis */
+
+*,  /* Seleciona todos os elementos */
+*::before,  /* Seleciona o conteúdo gerado antes de cada elemento */
+*::after {  /* Seleciona o conteúdo gerado depois de cada elemento */
+  box-sizing: border-box;  /* Padding e borda contam dentro da largura definida */
+}  /* Fecha a regra geral */
+
+body {  /* Estilo da página inteira */
+  margin: 0;  /* Remove a margem padrão do browser */
+  font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;  /* Tipo de letra do texto */
+  background: var(--cor-fundo);  /* Fundo creme */
+  color: var(--cor-texto);  /* Cor do texto */
+  line-height: 1.5;  /* Espaço entre linhas de texto */
+}  /* Fecha o body */
+
+a {  /* Estilo de todos os links */
+  color: inherit;  /* O link usa a cor do texto à volta */
+  text-decoration: none;  /* Tira o sublinhado */
+}  /* Fecha os links */
+
+h1, h2, h3 {  /* Estilo dos títulos */
+  margin: 0;  /* Remove a margem padrão */
+  font-family: Georgia, "Times New Roman", serif;  /* Letra com serifa para dar personalidade */
+}  /* Fecha os títulos */
+
+ul {  /* Estilo das listas sem ordem */
+  list-style: none;  /* Tira as bolinhas */
+  margin: 0;  /* Remove a margem */
+  padding: 0;  /* Remove o espaço interior */
+}  /* Fecha as listas */
+
+/* ---------- Cabeçalho ---------- */
+.topo {  /* Barra do topo com logo, menu e botão da conta */
+  display: grid;  /* Organiza os elementos em colunas */
+  grid-template-columns: 1fr auto 1fr;  /* Três colunas: logo, menu (centro) e conta */
+  align-items: center;  /* Alinha tudo ao centro na vertical */
+  gap: 24px;  /* Espaço entre as colunas */
+  padding: 14px 40px;  /* Espaço interior da barra */
+  background: var(--cor-superficie);  /* Fundo branco */
+  border-bottom: 1px solid var(--cor-borda);  /* Linha fina por baixo */
+  position: sticky;  /* A barra fica colada ao topo ao fazer scroll */
+  top: 0;  /* Cola no limite de cima */
+  z-index: 10;  /* Fica por cima do resto do conteúdo */
+}  /* Fecha o cabeçalho */
+
+.logo-placeholder {  /* Caixa temporária que representa o logótipo */
+  display: inline-flex;  /* Caixa que se ajusta ao conteúdo */
+  align-items: center;  /* Centra o texto na vertical */
+  justify-content: center;  /* Centra o texto na horizontal */
+  width: 80px;  /* Largura da caixa */
+  height: 56px;  /* Altura da caixa */
+  border: 2px dashed var(--cor-borda);  /* Contorno a tracejado */
+  border-radius: 10px;  /* Cantos arredondados */
+  color: var(--cor-texto-suave);  /* Cor do texto "Logo" */
+  font-size: 0.85rem;  /* Tamanho do texto */
+}  /* Fecha o logótipo temporário */
+
+.logo img {  /* Imagem do logótipo (quando a tiveres) */
+  height: 56px;  /* Altura do logótipo */
+  display: block;  /* Evita espaços estranhos por baixo da imagem */
+}  /* Fecha a imagem do logótipo */
+
+.menu {  /* Menu Início / Favoritos / Explorar */
+  display: flex;  /* Põe os links lado a lado */
+  gap: 8px;  /* Espaço entre os links */
+}  /* Fecha o menu */
+
+.menu a {  /* Cada link do menu */
+  padding: 8px 18px;  /* Espaço interior do link */
+  border-radius: 999px;  /* Forma de pílula */
+  font-weight: 600;  /* Letra semi-negrito */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+  transition: background 0.2s, color 0.2s;  /* Mudança suave de cor */
+}  /* Fecha os links do menu */
+
+.menu a:hover {  /* Link do menu quando o rato passa por cima */
+  background: var(--cor-realce);  /* Fundo laranja claro */
+  color: var(--cor-primaria);  /* Letra laranja */
+}  /* Fecha o hover do menu */
+
+.menu a.ativo {  /* Link da página onde estás */
+  background: var(--cor-realce);  /* Fundo laranja claro */
+  color: var(--cor-primaria);  /* Letra laranja */
+}  /* Fecha o link ativo */
+
+.btn-conta {  /* Botão "Minha conta" */
+  justify-self: end;  /* Encosta o botão à direita */
+  padding: 10px 24px;  /* Espaço interior */
+  border: 2px solid var(--cor-primaria);  /* Contorno laranja */
+  border-radius: 12px;  /* Cantos arredondados */
+  font-weight: 600;  /* Letra semi-negrito */
+  color: var(--cor-primaria);  /* Letra laranja */
+  transition: background 0.2s, color 0.2s;  /* Mudança suave de cor */
+}  /* Fecha o botão da conta */
+
+.btn-conta:hover {  /* Botão da conta com o rato por cima */
+  background: var(--cor-primaria);  /* Fundo laranja */
+  color: #fff;  /* Letra branca */
+}  /* Fecha o hover do botão da conta */
+
+/* ---------- Estrutura da página inicial ---------- */
+.conteudo {  /* Área principal da página inicial */
+  display: grid;  /* Organiza em colunas */
+  grid-template-columns: minmax(0, 1fr) 340px;  /* Coluna da esquerda flexível e coluna da direita com 340px */
+  gap: 40px;  /* Espaço entre as duas colunas */
+  max-width: 1280px;  /* Largura máxima do conteúdo */
+  margin: 0 auto;  /* Centra o conteúdo na página */
+  padding: 32px 40px 60px;  /* Espaço interior (cima, lados, baixo) */
+}  /* Fecha a área principal */
+
+.coluna-principal {  /* Coluna da esquerda */
+  display: flex;  /* Empilha os blocos */
+  flex-direction: column;  /* Um por baixo do outro */
+  gap: 32px;  /* Espaço entre blocos */
+}  /* Fecha a coluna da esquerda */
+
+.coluna-lateral {  /* Coluna da direita */
+  display: flex;  /* Empilha os blocos */
+  flex-direction: column;  /* Um por baixo do outro */
+  gap: 28px;  /* Espaço entre blocos */
+}  /* Fecha a coluna da direita */
+
+.titulo-seccao {  /* Título de cada secção */
+  font-size: 1.4rem;  /* Tamanho do título */
+  margin-bottom: 16px;  /* Espaço por baixo do título */
+}  /* Fecha o título de secção */
+
+/* ---------- Pesquisa ---------- */
+.pesquisa {  /* Barra de pesquisa */
+  display: flex;  /* Lupa e campo lado a lado */
+  align-items: center;  /* Alinha ao centro na vertical */
+  gap: 12px;  /* Espaço entre a lupa e o campo */
+  padding: 0 20px;  /* Espaço interior nos lados */
+  height: 56px;  /* Altura da barra */
+  background: var(--cor-superficie);  /* Fundo branco */
+  border: 2px solid var(--cor-borda);  /* Contorno claro */
+  border-radius: 14px;  /* Cantos arredondados */
+  transition: border-color 0.2s, box-shadow 0.2s;  /* Mudança suave ao clicar */
+}  /* Fecha a barra de pesquisa */
+
+.pesquisa:focus-within {  /* Quando escreves dentro da barra */
+  border-color: var(--cor-primaria);  /* Contorno laranja */
+  box-shadow: 0 0 0 4px var(--cor-realce);  /* Halo laranja claro à volta */
+}  /* Fecha o foco da pesquisa */
+
+.icone-lupa {  /* Desenho da lupa */
+  width: 22px;  /* Largura do ícone */
+  height: 22px;  /* Altura do ícone */
+  flex-shrink: 0;  /* Não deixa o ícone encolher */
+  fill: none;  /* Sem preenchimento */
+  stroke: var(--cor-texto-suave);  /* Cor do traço */
+  stroke-width: 2.2;  /* Espessura do traço */
+  stroke-linecap: round;  /* Pontas do traço arredondadas */
+}  /* Fecha a lupa */
+
+.pesquisa input {  /* Campo de texto da pesquisa */
+  flex: 1;  /* Ocupa o espaço que sobra */
+  border: none;  /* Sem contorno próprio */
+  outline: none;  /* Sem contorno ao clicar */
+  background: transparent;  /* Fundo transparente */
+  font: inherit;  /* Usa o mesmo tipo de letra da página */
+  font-size: 1rem;  /* Tamanho da letra */
+  color: var(--cor-texto);  /* Cor do texto escrito */
+}  /* Fecha o campo de pesquisa */
+
+/* ---------- Categorias ---------- */
+.categorias {  /* Lista de categorias */
+  display: grid;  /* Organiza em grelha */
+  grid-template-columns: repeat(7, minmax(0, 1fr));  /* Sete colunas iguais */
+  gap: 12px;  /* Espaço entre caixas */
+}  /* Fecha a lista de categorias */
+
+.categoria {  /* Caixa de uma categoria */
+  display: flex;  /* Organiza o conteúdo */
+  flex-direction: column;  /* Emoji em cima e nome por baixo */
+  align-items: center;  /* Centra na horizontal */
+  justify-content: center;  /* Centra na vertical */
+  gap: 6px;  /* Espaço entre emoji e nome */
+  aspect-ratio: 3 / 4;  /* Proporção da caixa (mais alta que larga) */
+  padding: 8px;  /* Espaço interior */
+  background: var(--cor-superficie);  /* Fundo branco */
+  border: 1px solid var(--cor-borda);  /* Contorno claro */
+  border-radius: 14px;  /* Cantos arredondados */
+  font-size: 0.85rem;  /* Tamanho do nome */
+  font-weight: 600;  /* Letra semi-negrito */
+  text-align: center;  /* Texto centrado */
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;  /* Animação suave */
+}  /* Fecha a caixa de categoria */
+
+.categoria-icone {  /* Emoji da categoria */
+  font-size: 2rem;  /* Tamanho do emoji */
+}  /* Fecha o emoji */
+
+.categoria:hover {  /* Categoria com o rato por cima */
+  transform: translateY(-3px);  /* Sobe um bocadinho */
+  border-color: var(--cor-primaria);  /* Contorno laranja */
+  box-shadow: var(--sombra-hover);  /* Sombra maior */
+}  /* Fecha o hover da categoria */
+
+/* ---------- Cartões de receitas ---------- */
+.receitas {  /* Grelha de cartões de receitas */
+  display: grid;  /* Organiza em grelha */
+  grid-template-columns: repeat(4, minmax(0, 1fr));  /* Quatro colunas iguais */
+  gap: 20px;  /* Espaço entre cartões */
+}  /* Fecha a grelha de receitas */
+
+.cartao {  /* Cartão de uma receita */
+  background: var(--cor-superficie);  /* Fundo branco */
+  border-radius: var(--raio);  /* Cantos arredondados */
+  overflow: hidden;  /* Corta o que sair dos cantos */
+  box-shadow: var(--sombra);  /* Sombra suave */
+  transition: transform 0.2s, box-shadow 0.2s;  /* Animação suave */
+}  /* Fecha o cartão */
+
+.cartao:hover {  /* Cartão com o rato por cima */
+  transform: translateY(-4px);  /* Sobe um bocadinho */
+  box-shadow: var(--sombra-hover);  /* Sombra maior */
+}  /* Fecha o hover do cartão */
+
+.cartao-imagem {  /* Zona da imagem do cartão */
+  position: relative;  /* Serve de referência para o botão de favorito */
+  display: flex;  /* Para centrar o emoji */
+  align-items: center;  /* Centra na vertical */
+  justify-content: center;  /* Centra na horizontal */
+  aspect-ratio: 4 / 3;  /* Proporção da imagem */
+  background: linear-gradient(135deg, #fde9dd, #fbd3b8);  /* Fundo em degradé laranja claro */
+}  /* Fecha a zona da imagem */
+
+.cartao-emoji {  /* Emoji que faz de imagem */
+  font-size: 3.5rem;  /* Tamanho do emoji */
+}  /* Fecha o emoji do cartão */
+
+.cartao-imagem img {  /* Foto real (quando a usares) */
+  width: 100%;  /* Ocupa a largura toda */
+  height: 100%;  /* Ocupa a altura toda */
+  object-fit: cover;  /* Corta a foto sem a deformar */
+}  /* Fecha a foto */
+
+.cartao-corpo {  /* Zona de texto do cartão */
+  padding: 14px 16px 18px;  /* Espaço interior */
+}  /* Fecha o corpo do cartão */
+
+.cartao-corpo h3 {  /* Título da receita no cartão */
+  font-size: 1.05rem;  /* Tamanho do título */
+  margin-bottom: 4px;  /* Espaço por baixo */
+}  /* Fecha o título do cartão */
+
+.cartao-info {  /* Linha com tempo e dificuldade */
+  margin: 0;  /* Sem margem */
+  font-size: 0.85rem;  /* Letra pequena */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+}  /* Fecha a linha de info */
+
+/* Botão de favorito (marcador) */
+.btn-favorito {  /* Botão redondo do marcador */
+  position: absolute;  /* Posicionado dentro da imagem */
+  top: 10px;  /* Distância ao topo */
+  right: 10px;  /* Distância à direita */
+  display: flex;  /* Para centrar o ícone */
+  align-items: center;  /* Centra na vertical */
+  justify-content: center;  /* Centra na horizontal */
+  width: 36px;  /* Largura do botão */
+  height: 36px;  /* Altura do botão */
+  padding: 0;  /* Sem espaço interior */
+  border: none;  /* Sem contorno */
+  border-radius: 50%;  /* Forma redonda */
+  background: rgba(255, 255, 255, 0.92);  /* Branco quase opaco */
+  cursor: pointer;  /* Mostra a mãozinha ao passar o rato */
+  transition: transform 0.15s, background 0.15s;  /* Animação suave */
+}  /* Fecha o botão de favorito */
+
+.btn-favorito svg {  /* Ícone do marcador */
+  width: 18px;  /* Largura do ícone */
+  height: 18px;  /* Altura do ícone */
+  fill: none;  /* Marcador vazio por dentro */
+  stroke: var(--cor-primaria);  /* Traço laranja */
+  stroke-width: 2;  /* Espessura do traço */
+  stroke-linejoin: round;  /* Cantos do traço arredondados */
+}  /* Fecha o ícone */
+
+.btn-favorito:hover {  /* Botão com o rato por cima */
+  transform: scale(1.1);  /* Cresce um bocadinho */
+}  /* Fecha o hover do botão */
+
+.btn-favorito.ativo {  /* Botão quando a receita está guardada */
+  background: var(--cor-primaria);  /* Fundo laranja */
+}  /* Fecha o botão ativo */
+
+.btn-favorito.ativo svg {  /* Ícone quando está guardada */
+  fill: #fff;  /* Marcador preenchido a branco */
+  stroke: #fff;  /* Traço branco */
+}  /* Fecha o ícone ativo */
+
+/* ---------- Botão criar receita ---------- */
+.btn-criar {  /* Botão grande "Criar receita +" */
+  display: flex;  /* Texto e sinal + lado a lado */
+  align-items: center;  /* Centra na vertical */
+  justify-content: center;  /* Centra na horizontal */
+  gap: 14px;  /* Espaço entre texto e + */
+  padding: 26px 20px;  /* Espaço interior */
+  background: var(--cor-primaria);  /* Fundo laranja */
+  color: #fff;  /* Letra branca */
+  border-radius: 24px;  /* Cantos bem arredondados */
+  font-family: Georgia, "Times New Roman", serif;  /* Letra com serifa */
+  font-size: 1.5rem;  /* Tamanho grande */
+  font-weight: 700;  /* Negrito */
+  box-shadow: 0 6px 18px rgba(217, 83, 30, 0.35);  /* Sombra laranja */
+  transition: background 0.2s, transform 0.2s;  /* Animação suave */
+}  /* Fecha o botão criar */
+
+.btn-criar:hover {  /* Botão criar com o rato por cima */
+  background: var(--cor-primaria-escura);  /* Laranja mais escuro */
+  transform: translateY(-2px);  /* Sobe um bocadinho */
+}  /* Fecha o hover do botão criar */
+
+.btn-criar-mais {  /* Sinal + do botão */
+  font-size: 2rem;  /* Tamanho do sinal */
+  line-height: 1;  /* Sem espaço extra à volta */
+}  /* Fecha o sinal + */
+
+/* ---------- Em alta ---------- */
+.em-alta {  /* Caixa "Em alta" */
+  padding: 20px;  /* Espaço interior */
+  background: var(--cor-superficie);  /* Fundo branco */
+  border: 1px solid var(--cor-borda);  /* Contorno claro */
+  border-radius: 24px;  /* Cantos arredondados */
+}  /* Fecha a caixa em alta */
+
+.em-alta .titulo-seccao {  /* Título "Em alta" */
+  text-transform: uppercase;  /* Letras maiúsculas */
+  letter-spacing: 0.12em;  /* Espaço entre letras */
+  font-size: 1.2rem;  /* Tamanho do título */
+  color: var(--cor-primaria);  /* Cor laranja */
+}  /* Fecha o título em alta */
+
+.cartao-destaque {  /* Cartão da receita em destaque */
+  box-shadow: none;  /* Sem sombra */
+  border: 1px solid var(--cor-borda);  /* Contorno claro */
+}  /* Fecha o cartão em destaque */
+
+.cartao-destaque .cartao-imagem {  /* Imagem do cartão em destaque */
+  aspect-ratio: 1 / 1;  /* Imagem quadrada */
+}  /* Fecha a imagem em destaque */
+
+.cartao-destaque .cartao-emoji {  /* Emoji do cartão em destaque */
+  font-size: 6rem;  /* Emoji bem grande */
+}  /* Fecha o emoji em destaque */
+
+.cartao-descricao {  /* Texto de descrição do destaque */
+  margin: 10px 0 14px;  /* Margens de cima e de baixo */
+  font-size: 0.9rem;  /* Letra pequena */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+}  /* Fecha a descrição */
+
+.btn-ver {  /* Botão "Ver receita" */
+  display: inline-block;  /* Ajusta-se ao texto */
+  padding: 9px 20px;  /* Espaço interior */
+  background: var(--cor-realce);  /* Fundo laranja claro */
+  color: var(--cor-primaria);  /* Letra laranja */
+  border-radius: 999px;  /* Forma de pílula */
+  font-weight: 600;  /* Letra semi-negrito */
+  font-size: 0.9rem;  /* Tamanho da letra */
+  transition: background 0.2s, color 0.2s;  /* Mudança suave de cor */
+}  /* Fecha o botão ver */
+
+.btn-ver:hover {  /* Botão ver com o rato por cima */
+  background: var(--cor-primaria);  /* Fundo laranja */
+  color: #fff;  /* Letra branca */
+}  /* Fecha o hover do botão ver */
+
+/* ---------- Responsivo (adapta o site a ecrãs mais pequenos) ---------- */
+@media (max-width: 1100px) {  /* Regras para ecrãs até 1100px de largura */
+  .receitas {  /* Grelha de receitas */
+    grid-template-columns: repeat(2, minmax(0, 1fr));  /* Passa a duas colunas */
+  }  /* Fecha a grelha de receitas */
+  .categorias {  /* Lista de categorias */
+    grid-template-columns: repeat(4, minmax(0, 1fr));  /* Passa a quatro colunas */
+  }  /* Fecha a lista de categorias */
+}  /* Fecha as regras até 1100px */
+
+@media (max-width: 900px) {  /* Regras para ecrãs até 900px de largura */
+  .conteudo {  /* Área principal da página inicial */
+    grid-template-columns: 1fr;  /* Passa a uma só coluna */
+    padding: 24px 20px 48px;  /* Menos espaço nos lados */
+  }  /* Fecha a área principal */
+  .coluna-lateral {  /* Coluna da direita */
+    order: -1;  /* Sobe para o topo da página */
+  }  /* Fecha a coluna da direita */
+  .topo {  /* Cabeçalho */
+    grid-template-columns: auto 1fr auto;  /* Colunas ajustadas ao conteúdo */
+    padding: 12px 20px;  /* Menos espaço nos lados */
+    gap: 12px;  /* Menos espaço entre colunas */
+  }  /* Fecha o cabeçalho */
+  .menu {  /* Menu */
+    justify-content: center;  /* Centra os links */
+  }  /* Fecha o menu */
+}  /* Fecha as regras até 900px */
+
+@media (max-width: 600px) {  /* Regras para telemóveis (até 600px) */
+  .topo {  /* Cabeçalho */
+    grid-template-columns: 1fr auto;  /* Duas colunas: logo e conta */
+  }  /* Fecha o cabeçalho */
+  .menu {  /* Menu */
+    grid-column: 1 / -1;  /* Ocupa a linha toda */
+    order: 3;  /* Passa para baixo do logo e da conta */
+  }  /* Fecha o menu */
+  .categorias {  /* Lista de categorias */
+    grid-template-columns: repeat(3, minmax(0, 1fr));  /* Três colunas */
+  }  /* Fecha a lista de categorias */
+  .receitas {  /* Grelha de receitas */
+    grid-template-columns: 1fr;  /* Uma só coluna */
+  }  /* Fecha a grelha de receitas */
+}  /* Fecha as regras até 600px */
+

@@ -1,0 +1,118 @@
+<!DOCTYPE html>  <!-- Diz ao browser que este ficheiro é HTML5 -->
+<html lang="pt-PT">  <!-- Abre o documento; o idioma é português de Portugal -->
+<head>  <!-- Abre a parte técnica da página (não aparece no ecrã) -->
+  <meta charset="UTF-8">  <!-- Permite usar acentos e emojis sem erros -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Faz a página adaptar-se ao tamanho do telemóvel -->
+  <title>Carne – Sabores</title>  <!-- Texto que aparece no separador do browser -->
+  <link rel="stylesheet" href="style.css">  <!-- Liga o CSS base (cabeçalho, cartões, botões) -->
+  <link rel="stylesheet" href="paginas.css">  <!-- Liga o CSS das páginas (formulários, conta, receita) -->
+</head>  <!-- Fecha a parte técnica -->
+<body>  <!-- Abre o corpo: tudo o que aparece no ecrã -->
+
+  <header class="topo">  <!-- Abre o cabeçalho fixo no topo -->
+    <a href="index.html" class="logo" aria-label="Página inicial">  <!-- Logótipo que leva à página inicial -->
+      <span class="logo-placeholder">Logo</span>  <!-- Caixa temporária; troca por uma imagem do teu logótipo -->
+    </a>  <!-- Fecha o link do logótipo -->
+    <nav class="menu" aria-label="Navegação principal">  <!-- Abre o menu principal -->
+      <a href="index.html">Início</a>  <!-- Link para a página inicial -->
+      <a href="favoritos.html">Favoritos</a>  <!-- Link para os favoritos -->
+      <a href="explorar.html">Explorar</a>  <!-- Link para explorar receitas -->
+    </nav>  <!-- Fecha o menu principal -->
+    <a href="conta.html" class="btn-conta">Minha conta</a>  <!-- Botão que leva à conta da pessoa -->
+  </header>  <!-- Fecha o cabeçalho -->
+
+  <main class="conteudo-pagina">  <!-- Área principal da página -->
+    <nav class="migalhas" aria-label="Caminho de navegação">  <!-- Abre o caminho que mostra onde estás -->
+      <a href="index.html">Início</a>  <!-- Link para «Início» -->
+      <a href="index.html">Categorias</a>  <!-- Link para «Categorias» -->
+      <span>Carne</span>  <!-- Página onde estás: Carne -->
+    </nav>  <!-- Fecha o caminho -->
+    <section class="banner-categoria">  <!-- Faixa grande com o nome da categoria -->
+      <span class="banner-emoji" aria-hidden="true">🍖</span>  <!-- Emoji grande da categoria -->
+      <div>  <!-- Bloco de texto da faixa -->
+        <h1>Carne</h1>  <!-- Nome da categoria -->
+        <p>Pratos fortes de carne para o almoço de domingo ou para o dia a dia.</p>  <!-- Descrição da categoria -->
+        <p class="banner-contagem">4 receitas</p>  <!-- Número de receitas nesta categoria -->
+      </div>  <!-- Fecha o bloco de texto -->
+    </section>  <!-- Fecha a faixa -->
+    <section aria-labelledby="titulo-receitas">  <!-- Secção das receitas -->
+      <h2 id="titulo-receitas" class="titulo-seccao">Receitas de Carne</h2>  <!-- Título da secção -->
+      <div class="receitas">  <!-- Abre a grelha de cartões de receitas -->
+        <article class="cartao">  <!-- Abre o cartão da receita «Arroz de Pato» -->
+          <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+            <a href="receita.html" class="cartao-link" aria-label="Ver receita Arroz de Pato">  <!-- Link invisível que cobre a imagem toda -->
+              <span class="cartao-emoji">🥘</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+            </a>  <!-- Fecha o link da imagem -->
+            <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+            </button>  <!-- Fecha o botão de favorito -->
+          </div>  <!-- Fecha a zona da imagem -->
+          <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+            <h3><a href="receita.html">Arroz de Pato</a></h3>  <!-- Título da receita com link para os detalhes -->
+            <p class="cartao-info">⏱ 90 min · Média</p>  <!-- Tempo de preparação e dificuldade -->
+          </div>  <!-- Fecha a zona de texto -->
+        </article>  <!-- Fecha o cartão -->
+        <article class="cartao">  <!-- Abre o cartão da receita «Bifes com Cogumelos» -->
+          <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+            <a href="receita.html" class="cartao-link" aria-label="Ver receita Bifes com Cogumelos">  <!-- Link invisível que cobre a imagem toda -->
+              <span class="cartao-emoji">🥩</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+            </a>  <!-- Fecha o link da imagem -->
+            <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+            </button>  <!-- Fecha o botão de favorito -->
+          </div>  <!-- Fecha a zona da imagem -->
+          <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+            <h3><a href="receita.html">Bifes com Cogumelos</a></h3>  <!-- Título da receita com link para os detalhes -->
+            <p class="cartao-info">⏱ 30 min · Fácil</p>  <!-- Tempo de preparação e dificuldade -->
+          </div>  <!-- Fecha a zona de texto -->
+        </article>  <!-- Fecha o cartão -->
+        <article class="cartao">  <!-- Abre o cartão da receita «Frango no Churrasco» -->
+          <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+            <a href="receita.html" class="cartao-link" aria-label="Ver receita Frango no Churrasco">  <!-- Link invisível que cobre a imagem toda -->
+              <span class="cartao-emoji">🍗</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+            </a>  <!-- Fecha o link da imagem -->
+            <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+            </button>  <!-- Fecha o botão de favorito -->
+          </div>  <!-- Fecha a zona da imagem -->
+          <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+            <h3><a href="receita.html">Frango no Churrasco</a></h3>  <!-- Título da receita com link para os detalhes -->
+            <p class="cartao-info">⏱ 60 min · Fácil</p>  <!-- Tempo de preparação e dificuldade -->
+          </div>  <!-- Fecha a zona de texto -->
+        </article>  <!-- Fecha o cartão -->
+        <article class="cartao">  <!-- Abre o cartão da receita «Cozido à Portuguesa» -->
+          <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+            <a href="receita.html" class="cartao-link" aria-label="Ver receita Cozido à Portuguesa">  <!-- Link invisível que cobre a imagem toda -->
+              <span class="cartao-emoji">🍖</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+            </a>  <!-- Fecha o link da imagem -->
+            <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+            </button>  <!-- Fecha o botão de favorito -->
+          </div>  <!-- Fecha a zona da imagem -->
+          <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+            <h3><a href="receita.html">Cozido à Portuguesa</a></h3>  <!-- Título da receita com link para os detalhes -->
+            <p class="cartao-info">⏱ 150 min · Difícil</p>  <!-- Tempo de preparação e dificuldade -->
+          </div>  <!-- Fecha a zona de texto -->
+        </article>  <!-- Fecha o cartão -->
+      </div>  <!-- Fecha a grelha de receitas -->
+    </section>  <!-- Fecha a secção das receitas -->
+    <section aria-labelledby="titulo-outras">  <!-- Secção com todas as categorias -->
+      <h2 id="titulo-outras" class="titulo-seccao">Outras categorias</h2>  <!-- Título da secção -->
+      <ul class="categorias">  <!-- Lista das categorias -->
+        <li><a href="categoria-entradas.html" class="categoria"><span class="categoria-icone">🥗</span>Entradas</a></li>  <!-- Categoria «Entradas» (leva à sua página) -->
+        <li><a href="categoria-sopas.html" class="categoria"><span class="categoria-icone">🍲</span>Sopas</a></li>  <!-- Categoria «Sopas» (leva à sua página) -->
+        <li><a href="categoria-carne.html" class="categoria ativa"><span class="categoria-icone">🍖</span>Carne</a></li>  <!-- Categoria «Carne» (leva à sua página) -->
+        <li><a href="categoria-peixe.html" class="categoria"><span class="categoria-icone">🐟</span>Peixe</a></li>  <!-- Categoria «Peixe» (leva à sua página) -->
+        <li><a href="categoria-vegetariano.html" class="categoria"><span class="categoria-icone">🥦</span>Vegetariano</a></li>  <!-- Categoria «Vegetariano» (leva à sua página) -->
+        <li><a href="categoria-massas.html" class="categoria"><span class="categoria-icone">🍝</span>Massas</a></li>  <!-- Categoria «Massas» (leva à sua página) -->
+        <li><a href="categoria-sobremesas.html" class="categoria"><span class="categoria-icone">🍰</span>Sobremesas</a></li>  <!-- Categoria «Sobremesas» (leva à sua página) -->
+      </ul>  <!-- Fecha a lista de categorias -->
+    </section>  <!-- Fecha a secção das categorias -->
+  </main>  <!-- Fecha a área principal -->
+
+  <footer class="rodape">  <!-- Abre o rodapé da página -->
+    <p>© 2026 Sabores · Projeto de site de receitas</p>  <!-- Texto do rodapé -->
+  </footer>  <!-- Fecha o rodapé -->
+  <script src="script.js"></script>  <!-- Liga o JavaScript (favoritos, ingredientes, validações) -->
+</body>  <!-- Fecha o corpo da página -->
+</html>  <!-- Fecha o documento HTML -->

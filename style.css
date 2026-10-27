@@ -1,0 +1,431 @@
+/* =====================================================
+   Sabores – Site de Receitas
+   ===================================================== */
+
+:root {
+  --cor-fundo: #fbf7f2;
+  --cor-superficie: #ffffff;
+  --cor-texto: #2b2420;
+  --cor-texto-suave: #7a6e66;
+  --cor-primaria: #d9531e;
+  --cor-primaria-escura: #b8420f;
+  --cor-realce: #fde9dd;
+  --cor-borda: #eadfd3;
+  --raio: 16px;
+  --sombra: 0 2px 10px rgba(60, 40, 20, 0.08);
+  --sombra-hover: 0 8px 22px rgba(60, 40, 20, 0.14);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Cabeçalho ---------- */
+.topo {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  padding: 14px 40px;
+  background: var(--cor-superficie);
+  border-bottom: 1px solid var(--cor-borda);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 56px;
+  border: 2px dashed var(--cor-borda);
+  border-radius: 10px;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+}
+
+.logo img {
+  height: 56px;
+  display: block;
+}
+
+.menu {
+  display: flex;
+  gap: 8px;
+}
+
+.menu a {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  transition: background 0.2s, color 0.2s;
+}
+
+.menu a:hover {
+  background: var(--cor-realce);
+  color: var(--cor-primaria);
+}
+
+.menu a.ativo {
+  background: var(--cor-realce);
+  color: var(--cor-primaria);
+}
+
+.btn-conta {
+  justify-self: end;
+  padding: 10px 24px;
+  border: 2px solid var(--cor-primaria);
+  border-radius: 12px;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-conta:hover {
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+/* ---------- Estrutura principal ---------- */
+.conteudo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 40px 60px;
+}
+
+.coluna-principal {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.coluna-lateral {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.titulo-seccao {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+
+/* ---------- Pesquisa ---------- */
+.pesquisa {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px;
+  height: 56px;
+  background: var(--cor-superficie);
+  border: 2px solid var(--cor-borda);
+  border-radius: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pesquisa:focus-within {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 4px var(--cor-realce);
+}
+
+.icone-lupa {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--cor-texto-suave);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.pesquisa input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--cor-texto);
+}
+
+/* ---------- Categorias ---------- */
+.categorias {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.categoria {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  aspect-ratio: 3 / 4;
+  padding: 8px;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.categoria-icone {
+  font-size: 2rem;
+}
+
+.categoria:hover {
+  transform: translateY(-3px);
+  border-color: var(--cor-primaria);
+  box-shadow: var(--sombra-hover);
+}
+
+/* ---------- Cartões de receitas ---------- */
+.receitas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.cartao {
+  background: var(--cor-superficie);
+  border-radius: var(--raio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cartao:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-hover);
+}
+
+.cartao-imagem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, #fde9dd, #fbd3b8);
+}
+
+.cartao-emoji {
+  font-size: 3.5rem;
+}
+
+.cartao-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cartao-corpo {
+  padding: 14px 16px 18px;
+}
+
+.cartao-corpo h3 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.cartao-info {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+/* Botão de favorito (marcador) */
+.btn-favorito {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.btn-favorito svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--cor-primaria);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.btn-favorito:hover {
+  transform: scale(1.1);
+}
+
+.btn-favorito.ativo {
+  background: var(--cor-primaria);
+}
+
+.btn-favorito.ativo svg {
+  fill: #fff;
+  stroke: #fff;
+}
+
+/* ---------- Botão criar receita ---------- */
+.btn-criar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 26px 20px;
+  background: var(--cor-primaria);
+  color: #fff;
+  border-radius: 24px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(217, 83, 30, 0.35);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-criar:hover {
+  background: var(--cor-primaria-escura);
+  transform: translateY(-2px);
+}
+
+.btn-criar-mais {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* ---------- Em alta ---------- */
+.em-alta {
+  padding: 20px;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 24px;
+}
+
+.em-alta .titulo-seccao {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 1.2rem;
+  color: var(--cor-primaria);
+}
+
+.cartao-destaque {
+  box-shadow: none;
+  border: 1px solid var(--cor-borda);
+}
+
+.cartao-destaque .cartao-imagem {
+  aspect-ratio: 1 / 1;
+}
+
+.cartao-destaque .cartao-emoji {
+  font-size: 6rem;
+}
+
+.cartao-descricao {
+  margin: 10px 0 14px;
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+}
+
+.btn-ver {
+  display: inline-block;
+  padding: 9px 20px;
+  background: var(--cor-realce);
+  color: var(--cor-primaria);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-ver:hover {
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 1100px) {
+  .receitas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .categorias {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .conteudo {
+    grid-template-columns: 1fr;
+    padding: 24px 20px 48px;
+  }
+  /* Em ecrãs pequenos, "Criar receita" e "Em alta" sobem para o topo */
+  .coluna-lateral {
+    order: -1;
+  }
+  .topo {
+    grid-template-columns: auto 1fr auto;
+    padding: 12px 20px;
+    gap: 12px;
+  }
+  .menu {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .topo {
+    grid-template-columns: 1fr auto;
+  }
+  .menu {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+  .categorias {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .receitas {
+    grid-template-columns: 1fr;
+  }
+}

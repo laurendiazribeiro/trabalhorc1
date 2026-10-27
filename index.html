@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabores – Site de Receitas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== CABEÇALHO ========== -->
+  <header class="topo">
+    <a href="index.html" class="logo" aria-label="Página inicial">
+      <!-- Substitui pelo teu logótipo: <img src="logo.png" alt="Logo"> -->
+      <span class="logo-placeholder">Logo</span>
+    </a>
+
+    <nav class="menu" aria-label="Navegação principal">
+      <a href="index.html" class="ativo">Início</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="explorar.html">Explorar</a>
+    </nav>
+
+    <a href="conta.html" class="btn-conta">Minha conta</a>
+  </header>
+
+  <!-- ========== CONTEÚDO ========== -->
+  <main class="conteudo">
+
+    <!-- Coluna esquerda -->
+    <div class="coluna-principal">
+
+      <!-- Pesquisar -->
+      <form class="pesquisa" role="search" action="explorar.html" method="get">
+        <svg class="icone-lupa" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5"></circle>
+          <line x1="15.5" y1="15.5" x2="21" y2="21"></line>
+        </svg>
+        <input type="search" name="q" placeholder="Pesquisar receitas ou ingredientes..." aria-label="Pesquisar">
+      </form>
+
+      <!-- Categorias -->
+      <section aria-labelledby="titulo-categorias">
+        <h2 id="titulo-categorias" class="titulo-seccao">Categorias</h2>
+        <ul class="categorias">
+          <li><a href="#" class="categoria"><span class="categoria-icone">🥗</span>Entradas</a></li>
+          <li><a href="#" class="categoria"><span class="categoria-icone">🍲</span>Sopas</a></li>
+          <li><a href="#" class="categoria"><span class="categoria-icone">🍖</span>Carne</a></li>
+          <li><a href="#" class="categoria"><span class="categoria-icone">🐟</span>Peixe</a></li>
+          <li><a href="#" class="categoria"><span class="categoria-icone">🥦</span>Vegetariano</a></li>
+          <li><a href="#" class="categoria"><span class="categoria-icone">🍝</span>Massas</a></li>
+          <li><a href="#" class="categoria"><span class="categoria-icone">🍰</span>Sobremesas</a></li>
+        </ul>
+      </section>
+
+      <!-- Receitas -->
+      <section aria-labelledby="titulo-receitas">
+        <h2 id="titulo-receitas" class="titulo-seccao">Receitas</h2>
+        <div class="receitas">
+
+          <article class="cartao">
+            <div class="cartao-imagem">
+              <span class="cartao-emoji">🍝</span>
+              <button class="btn-favorito" aria-label="Guardar nos favoritos" title="Guardar nos favoritos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>
+              </button>
+            </div>
+            <div class="cartao-corpo">
+              <h3>Esparguete à Bolonhesa</h3>
+              <p class="cartao-info">⏱ 45 min · Fácil</p>
+            </div>
+          </article>
+
+          <article class="cartao">
+            <div class="cartao-imagem">
+              <span class="cartao-emoji">🍲</span>
+              <button class="btn-favorito" aria-label="Guardar nos favoritos" title="Guardar nos favoritos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>
+              </button>
+            </div>
+            <div class="cartao-corpo">
+              <h3>Caldo Verde</h3>
+              <p class="cartao-info">⏱ 40 min · Fácil</p>
+            </div>
+          </article>
+
+          <article class="cartao">
+            <div class="cartao-imagem">
+              <span class="cartao-emoji">🐟</span>
+              <button class="btn-favorito" aria-label="Guardar nos favoritos" title="Guardar nos favoritos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>
+              </button>
+            </div>
+            <div class="cartao-corpo">
+              <h3>Bacalhau com Natas</h3>
+              <p class="cartao-info">⏱ 60 min · Média</p>
+            </div>
+          </article>
+
+          <article class="cartao">
+            <div class="cartao-imagem">
+              <span class="cartao-emoji">🍰</span>
+              <button class="btn-favorito" aria-label="Guardar nos favoritos" title="Guardar nos favoritos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>
+              </button>
+            </div>
+            <div class="cartao-corpo">
+              <h3>Pudim Flan</h3>
+              <p class="cartao-info">⏱ 70 min · Média</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- Coluna direita -->
+    <aside class="coluna-lateral">
+
+      <a href="criar-receita.html" class="btn-criar">
+        <span>Criar receita</span>
+        <span class="btn-criar-mais">+</span>
+      </a>
+
+      <section class="em-alta" aria-labelledby="titulo-em-alta">
+        <h2 id="titulo-em-alta" class="titulo-seccao">Em alta</h2>
+        <article class="cartao cartao-destaque">
+          <div class="cartao-imagem">
+            <span class="cartao-emoji">🥘</span>
+          </div>
+          <div class="cartao-corpo">
+            <h3>Arroz de Pato</h3>
+            <p class="cartao-info">⏱ 90 min · Média</p>
+            <p class="cartao-descricao">A receita mais guardada da semana. Arroz cremoso com pato desfiado e chouriço, gratinado no forno.</p>
+            <a href="#" class="btn-ver">Ver receita</a>
+          </div>
+        </article>
+      </section>
+
+    </aside>
+  </main>
+
+</body>
+</html>

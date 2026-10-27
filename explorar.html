@@ -1,0 +1,290 @@
+<!DOCTYPE html>  <!-- Diz ao browser que este ficheiro é HTML5 -->
+<html lang="pt-PT">  <!-- Abre o documento; o idioma é português de Portugal -->
+<head>  <!-- Abre a parte técnica da página (não aparece no ecrã) -->
+  <meta charset="UTF-8">  <!-- Permite usar acentos e emojis sem erros -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Faz a página adaptar-se ao tamanho do telemóvel -->
+  <title>Explorar – Sabores</title>  <!-- Texto que aparece no separador do browser -->
+  <link rel="stylesheet" href="style.css">  <!-- Liga o CSS base (cabeçalho, cartões, botões) -->
+  <link rel="stylesheet" href="paginas.css">  <!-- Liga o CSS das páginas (formulários, conta, receita) -->
+</head>  <!-- Fecha a parte técnica -->
+<body>  <!-- Abre o corpo: tudo o que aparece no ecrã -->
+
+  <header class="topo">  <!-- Abre o cabeçalho fixo no topo -->
+    <a href="index.html" class="logo" aria-label="Página inicial">  <!-- Logótipo que leva à página inicial -->
+      <span class="logo-placeholder">Logo</span>  <!-- Caixa temporária; troca por uma imagem do teu logótipo -->
+    </a>  <!-- Fecha o link do logótipo -->
+    <nav class="menu" aria-label="Navegação principal">  <!-- Abre o menu principal -->
+      <a href="index.html">Início</a>  <!-- Link para a página inicial -->
+      <a href="favoritos.html">Favoritos</a>  <!-- Link para os favoritos -->
+      <a href="explorar.html" class="ativo">Explorar</a>  <!-- Link para explorar receitas -->
+    </nav>  <!-- Fecha o menu principal -->
+    <a href="conta.html" class="btn-conta">Minha conta</a>  <!-- Botão que leva à conta da pessoa -->
+  </header>  <!-- Fecha o cabeçalho -->
+
+  <main class="conteudo-pagina">  <!-- Área principal da página -->
+    <section class="cabecalho-pagina">  <!-- Abre o bloco de título da página -->
+      <nav class="migalhas" aria-label="Caminho de navegação">  <!-- Abre o caminho que mostra onde estás -->
+        <a href="index.html">Início</a>  <!-- Link para «Início» -->
+        <span>Explorar</span>  <!-- Página onde estás: Explorar -->
+      </nav>  <!-- Fecha o caminho -->
+      <h1>Explorar receitas</h1>  <!-- Título principal da página -->
+      <p>Procura por nome ou ingrediente e filtra por categoria, dificuldade ou tempo.</p>  <!-- Frase que explica a página -->
+    </section>  <!-- Fecha o bloco de título -->
+    <form class="filtros" action="explorar.html" method="get">  <!-- Caixa de pesquisa e filtros -->
+      <div class="pesquisa">  <!-- Barra de pesquisa -->
+        <svg class="icone-lupa" viewBox="0 0 24 24" aria-hidden="true">  <!-- Abre o desenho da lupa -->
+          <circle cx="10.5" cy="10.5" r="6.5"></circle>  <!-- Círculo da lupa -->
+          <line x1="15.5" y1="15.5" x2="21" y2="21"></line>  <!-- Cabo da lupa -->
+        </svg>  <!-- Fecha o desenho da lupa -->
+        <input type="search" name="q" placeholder="Pesquisar receitas ou ingredientes..." aria-label="Pesquisar">  <!-- Campo onde se escreve a pesquisa -->
+      </div>  <!-- Fecha a barra de pesquisa -->
+      <div class="filtros-grelha">  <!-- Grelha com os filtros -->
+        <div class="campo">  <!-- Filtro da categoria -->
+          <label for="filtro-categoria">Categoria</label>  <!-- Etiqueta do filtro -->
+          <select id="filtro-categoria" name="id_categoria">  <!-- Lista de categorias -->
+            <option value="">Todas</option>  <!-- Sem filtrar -->
+            <option value="1">Entradas</option>  <!-- Opção «Entradas» -->
+            <option value="2">Sopas</option>  <!-- Opção «Sopas» -->
+            <option value="3">Carne</option>  <!-- Opção «Carne» -->
+            <option value="4">Peixe</option>  <!-- Opção «Peixe» -->
+            <option value="5">Vegetariano</option>  <!-- Opção «Vegetariano» -->
+            <option value="6">Massas</option>  <!-- Opção «Massas» -->
+            <option value="7">Sobremesas</option>  <!-- Opção «Sobremesas» -->
+          </select>  <!-- Fecha a lista de categorias -->
+        </div>  <!-- Fecha o filtro da categoria -->
+        <div class="campo">  <!-- Filtro da dificuldade -->
+          <label for="filtro-dificuldade">Dificuldade</label>  <!-- Etiqueta do filtro -->
+          <select id="filtro-dificuldade" name="dificuldade">  <!-- Lista de dificuldades -->
+            <option value="">Todas</option>  <!-- Sem filtrar -->
+            <option value="fácil">Fácil</option>  <!-- Só receitas fáceis -->
+            <option value="média">Média</option>  <!-- Só receitas médias -->
+            <option value="difícil">Difícil</option>  <!-- Só receitas difíceis -->
+          </select>  <!-- Fecha a lista de dificuldades -->
+        </div>  <!-- Fecha o filtro da dificuldade -->
+        <div class="campo">  <!-- Filtro do tempo -->
+          <label for="filtro-tempo">Tempo máximo</label>  <!-- Etiqueta do filtro -->
+          <select id="filtro-tempo" name="tempo_max">  <!-- Lista de tempos -->
+            <option value="">Qualquer</option>  <!-- Sem filtrar -->
+            <option value="30">Até 30 min</option>  <!-- Receitas rápidas -->
+            <option value="60">Até 1 hora</option>  <!-- Receitas até uma hora -->
+            <option value="90">Até 1h30</option>  <!-- Receitas até uma hora e meia -->
+          </select>  <!-- Fecha a lista de tempos -->
+        </div>  <!-- Fecha o filtro do tempo -->
+        <div class="campo">  <!-- Escolha da ordem -->
+          <label for="filtro-ordem">Ordenar por</label>  <!-- Etiqueta do filtro -->
+          <select id="filtro-ordem" name="ordem">  <!-- Lista de ordens -->
+            <option value="recentes">Mais recentes</option>  <!-- Das mais novas para as mais antigas -->
+            <option value="guardadas">Mais guardadas</option>  <!-- Das mais favoritadas para as menos -->
+            <option value="avaliadas">Melhor avaliadas</option>  <!-- Das melhores notas para as piores -->
+          </select>  <!-- Fecha a lista de ordens -->
+        </div>  <!-- Fecha a escolha da ordem -->
+      </div>  <!-- Fecha a grelha de filtros -->
+      <button type="submit" class="btn-primario">Aplicar filtros</button>  <!-- Botão que envia os filtros -->
+    </form>  <!-- Fecha a caixa de filtros -->
+    <p class="resultados">14 receitas encontradas</p>  <!-- Quantidade de resultados -->
+    <div class="receitas">  <!-- Abre a grelha de cartões de receitas -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Pastéis de Bacalhau» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Pastéis de Bacalhau">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🧆</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Pastéis de Bacalhau</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 40 min · Média</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Salada de Polvo» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Salada de Polvo">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🥗</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Salada de Polvo</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 50 min · Média</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Caldo Verde» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Caldo Verde">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🍲</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Caldo Verde</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 40 min · Fácil</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Sopa de Legumes» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Sopa de Legumes">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🥕</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Sopa de Legumes</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 35 min · Fácil</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Arroz de Pato» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Arroz de Pato">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🥘</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Arroz de Pato</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 90 min · Média</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Bifes com Cogumelos» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Bifes com Cogumelos">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🥩</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Bifes com Cogumelos</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 30 min · Fácil</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Bacalhau com Natas» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Bacalhau com Natas">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🐟</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Bacalhau com Natas</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 60 min · Média</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Sardinhas Assadas» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Sardinhas Assadas">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🐟</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Sardinhas Assadas</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 25 min · Fácil</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Hambúrguer de Grão» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Hambúrguer de Grão">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🍔</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Hambúrguer de Grão</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 40 min · Fácil</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Lasanha de Legumes» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Lasanha de Legumes">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🥦</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Lasanha de Legumes</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 60 min · Média</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Esparguete à Bolonhesa» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Esparguete à Bolonhesa">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🍝</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Esparguete à Bolonhesa</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 45 min · Fácil</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Carbonara» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Carbonara">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🍝</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Carbonara</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 25 min · Média</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Pudim Flan» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Pudim Flan">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🍮</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Pudim Flan</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 70 min · Média</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+      <article class="cartao">  <!-- Abre o cartão da receita «Mousse de Chocolate» -->
+        <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+          <a href="receita.html" class="cartao-link" aria-label="Ver receita Mousse de Chocolate">  <!-- Link invisível que cobre a imagem toda -->
+            <span class="cartao-emoji">🍫</span>  <!-- Emoji que faz de imagem (troca por uma foto real) -->
+          </a>  <!-- Fecha o link da imagem -->
+          <button type="button" class="btn-favorito" aria-label="Guardar nos favoritos" aria-pressed="false">  <!-- Botão marcador para guardar nos favoritos -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+          </button>  <!-- Fecha o botão de favorito -->
+        </div>  <!-- Fecha a zona da imagem -->
+        <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+          <h3><a href="receita.html">Mousse de Chocolate</a></h3>  <!-- Título da receita com link para os detalhes -->
+          <p class="cartao-info">⏱ 20 min · Fácil</p>  <!-- Tempo de preparação e dificuldade -->
+        </div>  <!-- Fecha a zona de texto -->
+      </article>  <!-- Fecha o cartão -->
+    </div>  <!-- Fecha a grelha de receitas -->
+  </main>  <!-- Fecha a área principal -->
+
+  <footer class="rodape">  <!-- Abre o rodapé da página -->
+    <p>© 2026 Sabores · Projeto de site de receitas</p>  <!-- Texto do rodapé -->
+  </footer>  <!-- Fecha o rodapé -->
+  <script src="script.js"></script>  <!-- Liga o JavaScript (favoritos, ingredientes, validações) -->
+</body>  <!-- Fecha o corpo da página -->
+</html>  <!-- Fecha o documento HTML -->

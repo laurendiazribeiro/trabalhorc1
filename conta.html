@@ -1,0 +1,120 @@
+<!DOCTYPE html>  <!-- Diz ao browser que este ficheiro é HTML5 -->
+<html lang="pt-PT">  <!-- Abre o documento; o idioma é português de Portugal -->
+<head>  <!-- Abre a parte técnica da página (não aparece no ecrã) -->
+  <meta charset="UTF-8">  <!-- Permite usar acentos e emojis sem erros -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Faz a página adaptar-se ao tamanho do telemóvel -->
+  <title>Minha conta – Sabores</title>  <!-- Texto que aparece no separador do browser -->
+  <link rel="stylesheet" href="style.css">  <!-- Liga o CSS base (cabeçalho, cartões, botões) -->
+  <link rel="stylesheet" href="paginas.css">  <!-- Liga o CSS das páginas (formulários, conta, receita) -->
+</head>  <!-- Fecha a parte técnica -->
+<body>  <!-- Abre o corpo: tudo o que aparece no ecrã -->
+
+  <header class="topo">  <!-- Abre o cabeçalho fixo no topo -->
+    <a href="index.html" class="logo" aria-label="Página inicial">  <!-- Logótipo que leva à página inicial -->
+      <span class="logo-placeholder">Logo</span>  <!-- Caixa temporária; troca por uma imagem do teu logótipo -->
+    </a>  <!-- Fecha o link do logótipo -->
+    <nav class="menu" aria-label="Navegação principal">  <!-- Abre o menu principal -->
+      <a href="index.html">Início</a>  <!-- Link para a página inicial -->
+      <a href="favoritos.html">Favoritos</a>  <!-- Link para os favoritos -->
+      <a href="explorar.html">Explorar</a>  <!-- Link para explorar receitas -->
+    </nav>  <!-- Fecha o menu principal -->
+    <a href="conta.html" class="btn-conta ativo">Minha conta</a>  <!-- Botão que leva à conta da pessoa -->
+  </header>  <!-- Fecha o cabeçalho -->
+
+  <main class="conteudo-pagina">  <!-- Área principal da página -->
+    <nav class="migalhas" aria-label="Caminho de navegação">  <!-- Abre o caminho que mostra onde estás -->
+      <a href="index.html">Início</a>  <!-- Link para «Início» -->
+      <span>Minha conta</span>  <!-- Página onde estás: Minha conta -->
+    </nav>  <!-- Fecha o caminho -->
+    <section class="perfil">  <!-- Cartão com os dados da pessoa -->
+      <div class="avatar" aria-hidden="true">A</div>  <!-- Círculo com a inicial do nome -->
+      <div class="perfil-info">  <!-- Nome, email e data de registo -->
+        <h1>Ana Costa</h1>  <!-- Nome da pessoa (exemplo) -->
+        <p>ana.costa@exemplo.pt</p>  <!-- Email da pessoa (exemplo) -->
+        <p>Membro desde 3 de setembro de 2026</p>  <!-- Data de registo (exemplo) -->
+      </div>  <!-- Fecha os dados da pessoa -->
+      <a href="index.html" class="btn-secundario perfil-acoes">Terminar sessão</a>  <!-- Sai da conta e volta ao início -->
+    </section>  <!-- Fecha o cartão do perfil -->
+    <section class="estatisticas" aria-label="Resumo da conta">  <!-- Três números de resumo -->
+      <div class="estatistica">  <!-- Caixa das receitas criadas -->
+        <span class="estatistica-numero">3</span>  <!-- Número de receitas criadas -->
+        <span class="estatistica-texto">Receitas criadas</span>  <!-- Legenda -->
+      </div>  <!-- Fecha a caixa das receitas criadas -->
+      <div class="estatistica">  <!-- Caixa dos favoritos recebidos -->
+        <span class="estatistica-numero">47</span>  <!-- Total de vezes que guardaram as minhas receitas -->
+        <span class="estatistica-texto">Vezes guardadas por outras pessoas</span>  <!-- Legenda -->
+      </div>  <!-- Fecha a caixa dos favoritos recebidos -->
+      <div class="estatistica">  <!-- Caixa dos meus favoritos -->
+        <a href="favoritos.html">  <!-- Link para a página de favoritos -->
+          <span class="estatistica-numero">6</span>  <!-- Número de receitas que eu guardei -->
+          <span class="estatistica-texto">Receitas nos meus favoritos</span>  <!-- Legenda -->
+        </a>  <!-- Fecha o link de favoritos -->
+      </div>  <!-- Fecha a caixa dos meus favoritos -->
+    </section>  <!-- Fecha as estatísticas -->
+    <section aria-labelledby="titulo-minhas">  <!-- Secção das minhas receitas -->
+      <div class="cabecalho-seccao">  <!-- Linha com título e botão -->
+        <h2 id="titulo-minhas" class="titulo-seccao">As minhas receitas</h2>  <!-- Título da secção -->
+        <a href="criar-receita.html" class="btn-primario">Criar receita +</a>  <!-- Leva ao formulário de criar receita -->
+      </div>  <!-- Fecha a linha do título -->
+      <div class="receitas">  <!-- Abre a grelha de cartões de receitas -->
+        <article class="cartao">  <!-- Abre o cartão da minha receita «Arroz de Pato» -->
+          <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+            <a href="receita.html" class="cartao-link" aria-label="Ver receita Arroz de Pato">  <!-- Link invisível que cobre a imagem toda -->
+              <span class="cartao-emoji">🥘</span>  <!-- Emoji que faz de imagem -->
+            </a>  <!-- Fecha o link da imagem -->
+            <span class="selo-favoritos" title="Pessoas que guardaram esta receita">🔖 24</span>  <!-- Etiqueta com o número de favoritos -->
+          </div>  <!-- Fecha a zona da imagem -->
+          <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+            <h3><a href="receita.html">Arroz de Pato</a></h3>  <!-- Título da receita -->
+            <p class="cartao-info">⏱ 90 min · Média</p>  <!-- Tempo de preparação e dificuldade -->
+            <p class="cartao-estatistica">24 pessoas guardaram esta receita</p>  <!-- Quantas pessoas a puseram nos favoritos -->
+            <div class="cartao-acoes">  <!-- Botões de ação -->
+              <a href="criar-receita.html" class="btn-pequeno">Editar</a>  <!-- Leva ao formulário para editar -->
+              <button type="button" class="btn-pequeno perigo btn-apagar">Apagar</button>  <!-- Botão para apagar a receita -->
+            </div>  <!-- Fecha os botões de ação -->
+          </div>  <!-- Fecha a zona de texto -->
+        </article>  <!-- Fecha o cartão -->
+        <article class="cartao">  <!-- Abre o cartão da minha receita «Pudim Flan» -->
+          <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+            <a href="receita.html" class="cartao-link" aria-label="Ver receita Pudim Flan">  <!-- Link invisível que cobre a imagem toda -->
+              <span class="cartao-emoji">🍮</span>  <!-- Emoji que faz de imagem -->
+            </a>  <!-- Fecha o link da imagem -->
+            <span class="selo-favoritos" title="Pessoas que guardaram esta receita">🔖 15</span>  <!-- Etiqueta com o número de favoritos -->
+          </div>  <!-- Fecha a zona da imagem -->
+          <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+            <h3><a href="receita.html">Pudim Flan</a></h3>  <!-- Título da receita -->
+            <p class="cartao-info">⏱ 70 min · Média</p>  <!-- Tempo de preparação e dificuldade -->
+            <p class="cartao-estatistica">15 pessoas guardaram esta receita</p>  <!-- Quantas pessoas a puseram nos favoritos -->
+            <div class="cartao-acoes">  <!-- Botões de ação -->
+              <a href="criar-receita.html" class="btn-pequeno">Editar</a>  <!-- Leva ao formulário para editar -->
+              <button type="button" class="btn-pequeno perigo btn-apagar">Apagar</button>  <!-- Botão para apagar a receita -->
+            </div>  <!-- Fecha os botões de ação -->
+          </div>  <!-- Fecha a zona de texto -->
+        </article>  <!-- Fecha o cartão -->
+        <article class="cartao">  <!-- Abre o cartão da minha receita «Bruschetta de Tomate» -->
+          <div class="cartao-imagem">  <!-- Zona da imagem do cartão -->
+            <a href="receita.html" class="cartao-link" aria-label="Ver receita Bruschetta de Tomate">  <!-- Link invisível que cobre a imagem toda -->
+              <span class="cartao-emoji">🍅</span>  <!-- Emoji que faz de imagem -->
+            </a>  <!-- Fecha o link da imagem -->
+            <span class="selo-favoritos" title="Pessoas que guardaram esta receita">🔖 8</span>  <!-- Etiqueta com o número de favoritos -->
+          </div>  <!-- Fecha a zona da imagem -->
+          <div class="cartao-corpo">  <!-- Zona de texto do cartão -->
+            <h3><a href="receita.html">Bruschetta de Tomate</a></h3>  <!-- Título da receita -->
+            <p class="cartao-info">⏱ 15 min · Fácil</p>  <!-- Tempo de preparação e dificuldade -->
+            <p class="cartao-estatistica">8 pessoas guardaram esta receita</p>  <!-- Quantas pessoas a puseram nos favoritos -->
+            <div class="cartao-acoes">  <!-- Botões de ação -->
+              <a href="criar-receita.html" class="btn-pequeno">Editar</a>  <!-- Leva ao formulário para editar -->
+              <button type="button" class="btn-pequeno perigo btn-apagar">Apagar</button>  <!-- Botão para apagar a receita -->
+            </div>  <!-- Fecha os botões de ação -->
+          </div>  <!-- Fecha a zona de texto -->
+        </article>  <!-- Fecha o cartão -->
+      </div>  <!-- Fecha a grelha de receitas -->
+    </section>  <!-- Fecha a secção das minhas receitas -->
+  </main>  <!-- Fecha a área principal -->
+
+  <footer class="rodape">  <!-- Abre o rodapé da página -->
+    <p>© 2026 Sabores · Projeto de site de receitas</p>  <!-- Texto do rodapé -->
+  </footer>  <!-- Fecha o rodapé -->
+  <script src="script.js"></script>  <!-- Liga o JavaScript (favoritos, ingredientes, validações) -->
+</body>  <!-- Fecha o corpo da página -->
+</html>  <!-- Fecha o documento HTML -->

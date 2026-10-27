@@ -1,0 +1,185 @@
+<!DOCTYPE html>  <!-- Diz ao browser que este ficheiro é HTML5 -->
+<html lang="pt-PT">  <!-- Abre o documento; o idioma é português de Portugal -->
+<head>  <!-- Abre a parte técnica da página (não aparece no ecrã) -->
+  <meta charset="UTF-8">  <!-- Permite usar acentos e emojis sem erros -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Faz a página adaptar-se ao tamanho do telemóvel -->
+  <title>Criar receita – Sabores</title>  <!-- Texto que aparece no separador do browser -->
+  <link rel="stylesheet" href="style.css">  <!-- Liga o CSS base (cabeçalho, cartões, botões) -->
+  <link rel="stylesheet" href="paginas.css">  <!-- Liga o CSS das páginas (formulários, conta, receita) -->
+</head>  <!-- Fecha a parte técnica -->
+<body>  <!-- Abre o corpo: tudo o que aparece no ecrã -->
+
+  <header class="topo">  <!-- Abre o cabeçalho fixo no topo -->
+    <a href="index.html" class="logo" aria-label="Página inicial">  <!-- Logótipo que leva à página inicial -->
+      <span class="logo-placeholder">Logo</span>  <!-- Caixa temporária; troca por uma imagem do teu logótipo -->
+    </a>  <!-- Fecha o link do logótipo -->
+    <nav class="menu" aria-label="Navegação principal">  <!-- Abre o menu principal -->
+      <a href="index.html">Início</a>  <!-- Link para a página inicial -->
+      <a href="favoritos.html">Favoritos</a>  <!-- Link para os favoritos -->
+      <a href="explorar.html">Explorar</a>  <!-- Link para explorar receitas -->
+    </nav>  <!-- Fecha o menu principal -->
+    <a href="conta.html" class="btn-conta">Minha conta</a>  <!-- Botão que leva à conta da pessoa -->
+  </header>  <!-- Fecha o cabeçalho -->
+
+  <main class="conteudo-pagina">  <!-- Área principal da página -->
+    <section class="cabecalho-pagina">  <!-- Abre o bloco de título da página -->
+      <nav class="migalhas" aria-label="Caminho de navegação">  <!-- Abre o caminho que mostra onde estás -->
+        <a href="index.html">Início</a>  <!-- Link para «Início» -->
+        <span>Criar receita</span>  <!-- Página onde estás: Criar receita -->
+      </nav>  <!-- Fecha o caminho -->
+      <h1>Criar receita</h1>  <!-- Título principal da página -->
+      <p>Partilha a tua receita com toda a gente. Os campos têm os mesmos nomes das colunas da base de dados.</p>  <!-- Frase que explica a página -->
+    </section>  <!-- Fecha o bloco de título -->
+    <form class="formulario" action="#" method="post" enctype="multipart/form-data">  <!-- Formulário (troca o action pelo ficheiro que guarda na base de dados) -->
+      <fieldset>  <!-- Grupo 1: informações básicas -->
+        <legend>1. Informações da receita</legend>  <!-- Título do grupo -->
+        <div class="grelha-campos">  <!-- Campos em duas colunas -->
+          <div class="campo campo-largo">  <!-- Campo do título -->
+            <label for="titulo">Título da receita</label>  <!-- Etiqueta do campo -->
+            <input type="text" id="titulo" name="titulo" maxlength="150" placeholder="Ex.: Bacalhau com Natas" required>  <!-- Título (máx. 150 letras) -->
+          </div>  <!-- Fecha o campo do título -->
+          <div class="campo">  <!-- Campo da categoria -->
+            <label for="categoria">Categoria</label>  <!-- Etiqueta do campo -->
+            <select id="categoria" name="id_categoria" required>  <!-- Lista de categorias -->
+              <option value="" disabled selected>Escolhe uma categoria</option>  <!-- Texto inicial da lista -->
+              <option value="1">Entradas</option>  <!-- Opção «Entradas» -->
+              <option value="2">Sopas</option>  <!-- Opção «Sopas» -->
+              <option value="3">Carne</option>  <!-- Opção «Carne» -->
+              <option value="4">Peixe</option>  <!-- Opção «Peixe» -->
+              <option value="5">Vegetariano</option>  <!-- Opção «Vegetariano» -->
+              <option value="6">Massas</option>  <!-- Opção «Massas» -->
+              <option value="7">Sobremesas</option>  <!-- Opção «Sobremesas» -->
+            </select>  <!-- Fecha a lista de categorias -->
+          </div>  <!-- Fecha o campo da categoria -->
+          <div class="campo">  <!-- Campo da dificuldade -->
+            <label for="dificuldade">Dificuldade</label>  <!-- Etiqueta do campo -->
+            <select id="dificuldade" name="dificuldade" required>  <!-- Lista de dificuldades -->
+              <option value="fácil">Fácil</option>  <!-- Receita fácil -->
+              <option value="média">Média</option>  <!-- Receita média -->
+              <option value="difícil">Difícil</option>  <!-- Receita difícil -->
+            </select>  <!-- Fecha a lista de dificuldades -->
+          </div>  <!-- Fecha o campo da dificuldade -->
+          <div class="campo">  <!-- Campo do tempo -->
+            <label for="tempo_preparo">Tempo de preparação (minutos)</label>  <!-- Etiqueta do campo -->
+            <input type="number" id="tempo_preparo" name="tempo_preparo" min="1" placeholder="45" required>  <!-- Tempo em minutos -->
+          </div>  <!-- Fecha o campo do tempo -->
+          <div class="campo">  <!-- Campo das porções -->
+            <label for="porcoes">Número de porções</label>  <!-- Etiqueta do campo -->
+            <input type="number" id="porcoes" name="porcoes" min="1" placeholder="4" required>  <!-- Quantas pessoas serve -->
+          </div>  <!-- Fecha o campo das porções -->
+          <div class="campo campo-largo">  <!-- Campo da descrição -->
+            <label for="descricao">Descrição curta</label>  <!-- Etiqueta do campo -->
+            <textarea id="descricao" name="descricao" rows="3" placeholder="Conta em poucas palavras o que torna esta receita especial."></textarea>  <!-- Descrição (opcional) -->
+          </div>  <!-- Fecha o campo da descrição -->
+        </div>  <!-- Fecha a grelha de campos -->
+      </fieldset>  <!-- Fecha o grupo 1 -->
+      <fieldset>  <!-- Grupo 2: foto -->
+        <legend>2. Foto</legend>  <!-- Título do grupo -->
+        <div class="campo">  <!-- Campo da foto -->
+          <label for="imagem">Escolhe uma imagem do prato</label>  <!-- Etiqueta do campo -->
+          <input type="file" id="imagem" name="imagem" accept="image/*">  <!-- Escolher ficheiro de imagem -->
+          <p class="dica">Formatos aceites: JPG, PNG ou WEBP.</p>  <!-- Texto de ajuda -->
+        </div>  <!-- Fecha o campo da foto -->
+      </fieldset>  <!-- Fecha o grupo 2 -->
+      <fieldset>  <!-- Grupo 3: ingredientes -->
+        <legend>3. Ingredientes</legend>  <!-- Título do grupo -->
+        <div id="lista-ingredientes">  <!-- Caixa onde o JavaScript junta novas linhas -->
+          <div class="linha-ingrediente">  <!-- Uma linha: quantidade, unidade e nome do ingrediente -->
+            <label class="campo">  <!-- Campo da quantidade -->
+              <span class="so-leitor">Quantidade</span>  <!-- Etiqueta só para leitores de ecrã -->
+              <input type="number" name="ingrediente_quantidade[]" min="0" step="0.01" placeholder="Qtd.">  <!-- Número (ex.: 200) -->
+            </label>  <!-- Fecha o campo da quantidade -->
+            <label class="campo">  <!-- Campo da unidade -->
+              <span class="so-leitor">Unidade</span>  <!-- Etiqueta só para leitores de ecrã -->
+              <select name="ingrediente_unidade[]">  <!-- Lista de unidades -->
+                <option>g</option>  <!-- Unidade «g» -->
+                <option>kg</option>  <!-- Unidade «kg» -->
+                <option>ml</option>  <!-- Unidade «ml» -->
+                <option>l</option>  <!-- Unidade «l» -->
+                <option>colher de sopa</option>  <!-- Unidade «colher de sopa» -->
+                <option>colher de chá</option>  <!-- Unidade «colher de chá» -->
+                <option>chávena</option>  <!-- Unidade «chávena» -->
+                <option>unidade</option>  <!-- Unidade «unidade» -->
+                <option>q.b.</option>  <!-- Unidade «q.b.» -->
+              </select>  <!-- Fecha a lista de unidades -->
+            </label>  <!-- Fecha o campo da unidade -->
+            <label class="campo">  <!-- Campo do nome do ingrediente -->
+              <span class="so-leitor">Ingrediente</span>  <!-- Etiqueta só para leitores de ecrã -->
+              <input type="text" name="ingrediente_nome[]" maxlength="100" placeholder="Ingrediente (ex.: Arroz)" required>  <!-- Nome do ingrediente -->
+            </label>  <!-- Fecha o campo do nome -->
+            <button type="button" class="btn-remover" aria-label="Remover ingrediente">✕</button>  <!-- Botão que remove esta linha -->
+          </div>  <!-- Fecha a linha do ingrediente -->
+          <div class="linha-ingrediente">  <!-- Uma linha: quantidade, unidade e nome do ingrediente -->
+            <label class="campo">  <!-- Campo da quantidade -->
+              <span class="so-leitor">Quantidade</span>  <!-- Etiqueta só para leitores de ecrã -->
+              <input type="number" name="ingrediente_quantidade[]" min="0" step="0.01" placeholder="Qtd.">  <!-- Número (ex.: 200) -->
+            </label>  <!-- Fecha o campo da quantidade -->
+            <label class="campo">  <!-- Campo da unidade -->
+              <span class="so-leitor">Unidade</span>  <!-- Etiqueta só para leitores de ecrã -->
+              <select name="ingrediente_unidade[]">  <!-- Lista de unidades -->
+                <option>g</option>  <!-- Unidade «g» -->
+                <option>kg</option>  <!-- Unidade «kg» -->
+                <option>ml</option>  <!-- Unidade «ml» -->
+                <option>l</option>  <!-- Unidade «l» -->
+                <option>colher de sopa</option>  <!-- Unidade «colher de sopa» -->
+                <option>colher de chá</option>  <!-- Unidade «colher de chá» -->
+                <option>chávena</option>  <!-- Unidade «chávena» -->
+                <option>unidade</option>  <!-- Unidade «unidade» -->
+                <option>q.b.</option>  <!-- Unidade «q.b.» -->
+              </select>  <!-- Fecha a lista de unidades -->
+            </label>  <!-- Fecha o campo da unidade -->
+            <label class="campo">  <!-- Campo do nome do ingrediente -->
+              <span class="so-leitor">Ingrediente</span>  <!-- Etiqueta só para leitores de ecrã -->
+              <input type="text" name="ingrediente_nome[]" maxlength="100" placeholder="Ingrediente (ex.: Arroz)" required>  <!-- Nome do ingrediente -->
+            </label>  <!-- Fecha o campo do nome -->
+            <button type="button" class="btn-remover" aria-label="Remover ingrediente">✕</button>  <!-- Botão que remove esta linha -->
+          </div>  <!-- Fecha a linha do ingrediente -->
+          <div class="linha-ingrediente">  <!-- Uma linha: quantidade, unidade e nome do ingrediente -->
+            <label class="campo">  <!-- Campo da quantidade -->
+              <span class="so-leitor">Quantidade</span>  <!-- Etiqueta só para leitores de ecrã -->
+              <input type="number" name="ingrediente_quantidade[]" min="0" step="0.01" placeholder="Qtd.">  <!-- Número (ex.: 200) -->
+            </label>  <!-- Fecha o campo da quantidade -->
+            <label class="campo">  <!-- Campo da unidade -->
+              <span class="so-leitor">Unidade</span>  <!-- Etiqueta só para leitores de ecrã -->
+              <select name="ingrediente_unidade[]">  <!-- Lista de unidades -->
+                <option>g</option>  <!-- Unidade «g» -->
+                <option>kg</option>  <!-- Unidade «kg» -->
+                <option>ml</option>  <!-- Unidade «ml» -->
+                <option>l</option>  <!-- Unidade «l» -->
+                <option>colher de sopa</option>  <!-- Unidade «colher de sopa» -->
+                <option>colher de chá</option>  <!-- Unidade «colher de chá» -->
+                <option>chávena</option>  <!-- Unidade «chávena» -->
+                <option>unidade</option>  <!-- Unidade «unidade» -->
+                <option>q.b.</option>  <!-- Unidade «q.b.» -->
+              </select>  <!-- Fecha a lista de unidades -->
+            </label>  <!-- Fecha o campo da unidade -->
+            <label class="campo">  <!-- Campo do nome do ingrediente -->
+              <span class="so-leitor">Ingrediente</span>  <!-- Etiqueta só para leitores de ecrã -->
+              <input type="text" name="ingrediente_nome[]" maxlength="100" placeholder="Ingrediente (ex.: Arroz)" required>  <!-- Nome do ingrediente -->
+            </label>  <!-- Fecha o campo do nome -->
+            <button type="button" class="btn-remover" aria-label="Remover ingrediente">✕</button>  <!-- Botão que remove esta linha -->
+          </div>  <!-- Fecha a linha do ingrediente -->
+        </div>  <!-- Fecha a lista de ingredientes -->
+        <button type="button" class="btn-adicionar" id="btn-add-ingrediente">+ Adicionar ingrediente</button>  <!-- Botão que junta uma nova linha -->
+      </fieldset>  <!-- Fecha o grupo 3 -->
+      <fieldset>  <!-- Grupo 4: modo de preparo -->
+        <legend>4. Modo de preparo</legend>  <!-- Título do grupo -->
+        <div class="campo">  <!-- Campo do modo de preparo -->
+          <label for="modo_preparo">Passo a passo</label>  <!-- Etiqueta do campo -->
+          <textarea id="modo_preparo" name="modo_preparo" rows="8" placeholder="Escreve um passo por linha." required></textarea>  <!-- Texto com os passos -->
+          <p class="dica">Dica: escreve um passo por linha.</p>  <!-- Texto de ajuda -->
+        </div>  <!-- Fecha o campo do modo de preparo -->
+      </fieldset>  <!-- Fecha o grupo 4 -->
+      <div class="acoes-formulario">  <!-- Linha de botões -->
+        <a href="index.html" class="btn-secundario">Cancelar</a>  <!-- Volta à página inicial sem guardar -->
+        <button type="submit" class="btn-primario">Publicar receita</button>  <!-- Envia o formulário -->
+      </div>  <!-- Fecha a linha de botões -->
+    </form>  <!-- Fecha o formulário -->
+  </main>  <!-- Fecha a área principal -->
+
+  <footer class="rodape">  <!-- Abre o rodapé da página -->
+    <p>© 2026 Sabores · Projeto de site de receitas</p>  <!-- Texto do rodapé -->
+  </footer>  <!-- Fecha o rodapé -->
+  <script src="script.js"></script>  <!-- Liga o JavaScript (favoritos, ingredientes, validações) -->
+</body>  <!-- Fecha o corpo da página -->
+</html>  <!-- Fecha o documento HTML -->

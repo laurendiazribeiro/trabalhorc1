@@ -1,0 +1,135 @@
+<!DOCTYPE html>  <!-- Diz ao browser que este ficheiro é HTML5 -->
+<html lang="pt-PT">  <!-- Abre o documento; o idioma é português de Portugal -->
+<head>  <!-- Abre a parte técnica da página (não aparece no ecrã) -->
+  <meta charset="UTF-8">  <!-- Permite usar acentos e emojis sem erros -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Faz a página adaptar-se ao tamanho do telemóvel -->
+  <title>Arroz de Pato – Sabores</title>  <!-- Texto que aparece no separador do browser -->
+  <link rel="stylesheet" href="style.css">  <!-- Liga o CSS base (cabeçalho, cartões, botões) -->
+  <link rel="stylesheet" href="paginas.css">  <!-- Liga o CSS das páginas (formulários, conta, receita) -->
+</head>  <!-- Fecha a parte técnica -->
+<body>  <!-- Abre o corpo: tudo o que aparece no ecrã -->
+
+  <header class="topo">  <!-- Abre o cabeçalho fixo no topo -->
+    <a href="index.html" class="logo" aria-label="Página inicial">  <!-- Logótipo que leva à página inicial -->
+      <span class="logo-placeholder">Logo</span>  <!-- Caixa temporária; troca por uma imagem do teu logótipo -->
+    </a>  <!-- Fecha o link do logótipo -->
+    <nav class="menu" aria-label="Navegação principal">  <!-- Abre o menu principal -->
+      <a href="index.html">Início</a>  <!-- Link para a página inicial -->
+      <a href="favoritos.html">Favoritos</a>  <!-- Link para os favoritos -->
+      <a href="explorar.html">Explorar</a>  <!-- Link para explorar receitas -->
+    </nav>  <!-- Fecha o menu principal -->
+    <a href="conta.html" class="btn-conta">Minha conta</a>  <!-- Botão que leva à conta da pessoa -->
+  </header>  <!-- Fecha o cabeçalho -->
+
+  <main class="conteudo-pagina">  <!-- Área principal da página -->
+    <nav class="migalhas" aria-label="Caminho de navegação">  <!-- Abre o caminho que mostra onde estás -->
+      <a href="index.html">Início</a>  <!-- Link para «Início» -->
+      <a href="categoria-carne.html">Carne</a>  <!-- Link para «Carne» -->
+      <span>Arroz de Pato</span>  <!-- Página onde estás: Arroz de Pato -->
+    </nav>  <!-- Fecha o caminho -->
+    <article class="receita-detalhe">  <!-- Abre a receita completa -->
+      <div class="detalhe-topo">  <!-- Parte de cima: imagem e informação -->
+        <div class="detalhe-imagem" aria-hidden="true">🥘</div>  <!-- Imagem grande (troca o emoji por uma foto) -->
+        <div class="detalhe-info">  <!-- Informação principal -->
+          <a href="categoria-carne.html" class="selo-categoria">Carne</a>  <!-- Categoria da receita (link) -->
+          <h1>Arroz de Pato</h1>  <!-- Título da receita -->
+          <p class="detalhe-autor">Por Ana Costa · Publicada a 12 de outubro de 2026</p>  <!-- Autora e data -->
+          <p class="detalhe-descricao">Arroz cremoso com pato desfiado e chouriço, gratinado no forno. Um clássico da cozinha portuguesa.</p>  <!-- Descrição da receita -->
+          <ul class="detalhe-chips">  <!-- Dados rápidos da receita -->
+            <li>⏱ 90 min</li>  <!-- Tempo de preparação -->
+            <li>🍽 4 porções</li>  <!-- Número de porções -->
+            <li>📊 Média</li>  <!-- Dificuldade -->
+          </ul>  <!-- Fecha os dados rápidos -->
+          <div class="detalhe-botoes">  <!-- Botão guardar e contagem -->
+            <button type="button" class="btn-guardar" aria-pressed="false">  <!-- Botão para guardar nos favoritos -->
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"></path></svg>  <!-- Desenho do marcador (ícone) -->
+              <span class="btn-guardar-texto">Guardar nos favoritos</span>  <!-- Texto do botão (o JavaScript muda-o) -->
+            </button>  <!-- Fecha o botão guardar -->
+            <span class="detalhe-contagem">24 pessoas guardaram esta receita</span>  <!-- Quantas pessoas guardaram -->
+          </div>  <!-- Fecha a linha do botão -->
+        </div>  <!-- Fecha a informação principal -->
+      </div>  <!-- Fecha a parte de cima -->
+      <div class="detalhe-corpo">  <!-- Ingredientes e passos lado a lado -->
+        <section class="caixa" aria-labelledby="titulo-ingredientes">  <!-- Caixa dos ingredientes -->
+          <h2 id="titulo-ingredientes" class="titulo-seccao">Ingredientes</h2>  <!-- Título da caixa -->
+          <ul class="lista-ingredientes">  <!-- Lista de ingredientes -->
+            <li><span class="qtd">1</span> pato inteiro (cerca de 1,5 kg)</li>  <!-- Ingrediente: 1 pato inteiro (cerca de 1,5 kg) -->
+            <li><span class="qtd">300 g</span> arroz carolino</li>  <!-- Ingrediente: 300 g arroz carolino -->
+            <li><span class="qtd">150 g</span> chouriço de carne</li>  <!-- Ingrediente: 150 g chouriço de carne -->
+            <li><span class="qtd">1</span> cebola grande</li>  <!-- Ingrediente: 1 cebola grande -->
+            <li><span class="qtd">2 dentes</span> de alho</li>  <!-- Ingrediente: 2 dentes de alho -->
+            <li><span class="qtd">1 folha</span> de louro</li>  <!-- Ingrediente: 1 folha de louro -->
+            <li><span class="qtd">1 dl</span> vinho branco</li>  <!-- Ingrediente: 1 dl vinho branco -->
+            <li><span class="qtd">600 ml</span> caldo da cozedura do pato</li>  <!-- Ingrediente: 600 ml caldo da cozedura do pato -->
+            <li><span class="qtd">q.b.</span> sal, pimenta e azeite</li>  <!-- Ingrediente: q.b. sal, pimenta e azeite -->
+          </ul>  <!-- Fecha a lista de ingredientes -->
+        </section>  <!-- Fecha a caixa dos ingredientes -->
+        <section class="caixa" aria-labelledby="titulo-preparo">  <!-- Caixa do modo de preparo -->
+          <h2 id="titulo-preparo" class="titulo-seccao">Modo de preparo</h2>  <!-- Título da caixa -->
+          <ol class="passos">  <!-- Lista numerada de passos -->
+            <li>Coza o pato em água com sal, metade da cebola e o louro durante cerca de 45 minutos, até ficar tenro.</li>  <!-- Passo 1 -->
+            <li>Retire o pato, desfie a carne e reserve o caldo da cozedura.</li>  <!-- Passo 2 -->
+            <li>Refogue o resto da cebola e o alho picados em azeite e junte o vinho branco, deixando reduzir.</li>  <!-- Passo 3 -->
+            <li>Adicione o arroz e 600 ml do caldo reservado e cozinhe durante 12 minutos.</li>  <!-- Passo 4 -->
+            <li>Misture metade do pato desfiado, tempere com sal e pimenta e passe para um tabuleiro.</li>  <!-- Passo 5 -->
+            <li>Cubra com o resto do pato e rodelas de chouriço e leve ao forno a 200 ºC durante 15 minutos, até gratinar.</li>  <!-- Passo 6 -->
+          </ol>  <!-- Fecha a lista de passos -->
+        </section>  <!-- Fecha a caixa do modo de preparo -->
+      </div>  <!-- Fecha ingredientes e passos -->
+    </article>  <!-- Fecha a receita completa -->
+    <section class="caixa avaliacoes" aria-labelledby="titulo-avaliacoes">  <!-- Caixa das avaliações -->
+      <h2 id="titulo-avaliacoes" class="titulo-seccao">Avaliações</h2>  <!-- Título da caixa -->
+      <div class="avaliacao-resumo">  <!-- Média das notas -->
+        <span class="avaliacao-media">4,7</span>  <!-- Média das notas -->
+        <div>  <!-- Bloco com estrelas e total -->
+          <span class="estrelas" aria-label="Média de 4,7 em 5">★★★★★</span>  <!-- Estrelas da média -->
+          <p class="dica">Com base em 3 avaliações</p>  <!-- Número de avaliações -->
+        </div>  <!-- Fecha o bloco de estrelas -->
+      </div>  <!-- Fecha o resumo -->
+      <form class="formulario-avaliacao" action="#" method="post">  <!-- Formulário para deixar uma avaliação -->
+        <div class="campo">  <!-- Campo da nota -->
+          <label for="nota">A tua nota</label>  <!-- Etiqueta do campo -->
+          <select id="nota" name="nota" required>  <!-- Lista de notas de 1 a 5 -->
+            <option value="5">★★★★★ – Excelente</option>  <!-- Nota 5 -->
+            <option value="4">★★★★☆ – Muito boa</option>  <!-- Nota 4 -->
+            <option value="3">★★★☆☆ – Boa</option>  <!-- Nota 3 -->
+            <option value="2">★★☆☆☆ – Razoável</option>  <!-- Nota 2 -->
+            <option value="1">★☆☆☆☆ – Fraca</option>  <!-- Nota 1 -->
+          </select>  <!-- Fecha a lista de notas -->
+        </div>  <!-- Fecha o campo da nota -->
+        <div class="campo">  <!-- Campo do comentário -->
+          <label for="comentario">Comentário (opcional)</label>  <!-- Etiqueta do campo -->
+          <textarea id="comentario" name="comentario" rows="3" placeholder="Conta-nos como correu."></textarea>  <!-- Texto do comentário -->
+        </div>  <!-- Fecha o campo do comentário -->
+        <button type="submit" class="btn-primario">Enviar avaliação</button>  <!-- Envia a avaliação -->
+      </form>  <!-- Fecha o formulário de avaliação -->
+      <article class="comentario">  <!-- Comentário de Beatriz M. -->
+        <div class="comentario-topo">  <!-- Nome e nota -->
+          <strong>Beatriz M.</strong>  <!-- Nome de quem comentou -->
+          <span class="estrelas" aria-label="Nota 5 de 5">★★★★★</span>  <!-- Estrelas da nota -->
+        </div>  <!-- Fecha o nome e a nota -->
+        <p>Ficou perfeito! O arroz ficou cremoso e o chouriço deu o toque final.</p>  <!-- Texto do comentário -->
+      </article>  <!-- Fecha o comentário -->
+      <article class="comentario">  <!-- Comentário de João P. -->
+        <div class="comentario-topo">  <!-- Nome e nota -->
+          <strong>João P.</strong>  <!-- Nome de quem comentou -->
+          <span class="estrelas" aria-label="Nota 4 de 5">★★★★☆</span>  <!-- Estrelas da nota -->
+        </div>  <!-- Fecha o nome e a nota -->
+        <p>Muito bom, só precisei de mais uns minutos no forno para gratinar.</p>  <!-- Texto do comentário -->
+      </article>  <!-- Fecha o comentário -->
+      <article class="comentario">  <!-- Comentário de Sofia R. -->
+        <div class="comentario-topo">  <!-- Nome e nota -->
+          <strong>Sofia R.</strong>  <!-- Nome de quem comentou -->
+          <span class="estrelas" aria-label="Nota 5 de 5">★★★★★</span>  <!-- Estrelas da nota -->
+        </div>  <!-- Fecha o nome e a nota -->
+        <p>Fiz para o almoço de domingo e a família adorou.</p>  <!-- Texto do comentário -->
+      </article>  <!-- Fecha o comentário -->
+    </section>  <!-- Fecha a caixa das avaliações -->
+  </main>  <!-- Fecha a área principal -->
+
+  <footer class="rodape">  <!-- Abre o rodapé da página -->
+    <p>© 2026 Sabores · Projeto de site de receitas</p>  <!-- Texto do rodapé -->
+  </footer>  <!-- Fecha o rodapé -->
+  <script src="script.js"></script>  <!-- Liga o JavaScript (favoritos, ingredientes, validações) -->
+</body>  <!-- Fecha o corpo da página -->
+</html>  <!-- Fecha o documento HTML -->

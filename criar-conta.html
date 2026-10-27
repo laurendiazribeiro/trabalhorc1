@@ -1,0 +1,62 @@
+<!DOCTYPE html>  <!-- Diz ao browser que este ficheiro é HTML5 -->
+<html lang="pt-PT">  <!-- Abre o documento; o idioma é português de Portugal -->
+<head>  <!-- Abre a parte técnica da página (não aparece no ecrã) -->
+  <meta charset="UTF-8">  <!-- Permite usar acentos e emojis sem erros -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Faz a página adaptar-se ao tamanho do telemóvel -->
+  <title>Criar conta – Sabores</title>  <!-- Texto que aparece no separador do browser -->
+  <link rel="stylesheet" href="style.css">  <!-- Liga o CSS base (cabeçalho, cartões, botões) -->
+  <link rel="stylesheet" href="paginas.css">  <!-- Liga o CSS das páginas (formulários, conta, receita) -->
+</head>  <!-- Fecha a parte técnica -->
+<body>  <!-- Abre o corpo: tudo o que aparece no ecrã -->
+
+  <header class="topo">  <!-- Abre o cabeçalho fixo no topo -->
+    <a href="index.html" class="logo" aria-label="Página inicial">  <!-- Logótipo que leva à página inicial -->
+      <span class="logo-placeholder">Logo</span>  <!-- Caixa temporária; troca por uma imagem do teu logótipo -->
+    </a>  <!-- Fecha o link do logótipo -->
+    <nav class="menu" aria-label="Navegação principal">  <!-- Abre o menu principal -->
+      <a href="index.html">Início</a>  <!-- Link para a página inicial -->
+      <a href="favoritos.html">Favoritos</a>  <!-- Link para os favoritos -->
+      <a href="explorar.html">Explorar</a>  <!-- Link para explorar receitas -->
+    </nav>  <!-- Fecha o menu principal -->
+    <a href="conta.html" class="btn-conta">Minha conta</a>  <!-- Botão que leva à conta da pessoa -->
+  </header>  <!-- Fecha o cabeçalho -->
+
+  <main class="pagina-auth">  <!-- Área principal: caixa centrada -->
+    <section class="caixa-auth">  <!-- Caixa do formulário -->
+      <span class="auth-emoji" aria-hidden="true">🍳</span>  <!-- Emoji decorativo -->
+      <h1>Criar conta</h1>  <!-- Título da página -->
+      <p class="auth-sub">Guarda as tuas receitas favoritas e partilha as tuas criações.</p>  <!-- Frase de apoio -->
+      <form action="#" method="post">  <!-- Formulário (troca o action pelo ficheiro que guarda o utilizador) -->
+        <div class="campo">  <!-- Campo do nome -->
+          <label for="nome">Nome</label>  <!-- Etiqueta do campo -->
+          <input type="text" id="nome" name="nome" maxlength="100" autocomplete="name" required>  <!-- Nome da pessoa -->
+        </div>  <!-- Fecha o campo do nome -->
+        <div class="campo">  <!-- Campo do email -->
+          <label for="email">Email</label>  <!-- Etiqueta do campo -->
+          <input type="email" id="email" name="email" maxlength="150" autocomplete="email" required>  <!-- Email (tem de ser único) -->
+        </div>  <!-- Fecha o campo do email -->
+        <div class="campo">  <!-- Campo da palavra-passe -->
+          <label for="palavra_passe">Palavra-passe</label>  <!-- Etiqueta do campo -->
+          <input type="password" id="palavra_passe" name="palavra_passe" minlength="8" autocomplete="new-password" required>  <!-- Palavra-passe com pelo menos 8 caracteres -->
+          <p class="dica">Mínimo de 8 caracteres.</p>  <!-- Texto de ajuda -->
+        </div>  <!-- Fecha o campo da palavra-passe -->
+        <div class="campo">  <!-- Campo de confirmação -->
+          <label for="confirmar_palavra_passe">Confirmar palavra-passe</label>  <!-- Etiqueta do campo -->
+          <input type="password" id="confirmar_palavra_passe" name="confirmar_palavra_passe" autocomplete="new-password" required>  <!-- Repetir a palavra-passe -->
+        </div>  <!-- Fecha o campo de confirmação -->
+        <label class="campo-checkbox">  <!-- Linha da caixinha dos termos -->
+          <input type="checkbox" name="termos" required>  <!-- Caixinha obrigatória -->
+          <span>Aceito os termos de utilização do site.</span>  <!-- Texto ao lado da caixinha -->
+        </label>  <!-- Fecha a linha da caixinha -->
+        <button type="submit" class="btn-primario btn-largo">Criar conta</button>  <!-- Envia o formulário -->
+      </form>  <!-- Fecha o formulário -->
+      <p class="auth-rodape">Já tens conta? <a href="entrar.html">Entrar</a></p>  <!-- Link para quem já tem conta -->
+    </section>  <!-- Fecha a caixa -->
+  </main>  <!-- Fecha a área principal -->
+
+  <footer class="rodape">  <!-- Abre o rodapé da página -->
+    <p>© 2026 Sabores · Projeto de site de receitas</p>  <!-- Texto do rodapé -->
+  </footer>  <!-- Fecha o rodapé -->
+  <script src="script.js"></script>  <!-- Liga o JavaScript (favoritos, ingredientes, validações) -->
+</body>  <!-- Fecha o corpo da página -->
+</html>  <!-- Fecha o documento HTML -->

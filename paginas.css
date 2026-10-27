@@ -1,0 +1,812 @@
+/* ===== Sabores – estilos das páginas novas ===== */
+/* Explorar, categorias, formulários, conta, favoritos e detalhes da receita */
+
+/* ---------- Utilitários ---------- */
+[hidden] {  /* Elementos com o atributo "hidden" */
+  display: none !important;  /* Ficam mesmo escondidos */
+}  /* Fecha a regra hidden */
+
+a:focus-visible,  /* Links escolhidos com o teclado */
+button:focus-visible {  /* Botões escolhidos com o teclado */
+  outline: 3px solid var(--cor-primaria);  /* Contorno laranja bem visível */
+  outline-offset: 2px;  /* Pequeno espaço entre o elemento e o contorno */
+}  /* Fecha o foco do teclado */
+
+.so-leitor {  /* Texto escondido que só os leitores de ecrã leem */
+  position: absolute;  /* Tira o texto do fluxo da página */
+  width: 1px;  /* Largura mínima */
+  height: 1px;  /* Altura mínima */
+  overflow: hidden;  /* Esconde o que sair da caixa */
+  clip: rect(0 0 0 0);  /* Corta a caixa toda */
+  white-space: nowrap;  /* Não parte o texto em linhas */
+}  /* Fecha o texto para leitores de ecrã */
+
+/* ---------- Estrutura comum das páginas ---------- */
+.conteudo-pagina {  /* Área principal das páginas novas */
+  display: flex;  /* Organiza os blocos */
+  flex-direction: column;  /* Um por baixo do outro */
+  gap: 32px;  /* Espaço entre blocos */
+  max-width: 1100px;  /* Largura máxima do conteúdo */
+  margin: 0 auto;  /* Centra na página */
+  padding: 32px 40px 60px;  /* Espaço interior (cima, lados, baixo) */
+}  /* Fecha a área principal */
+
+.migalhas {  /* Caminho "Início › Página" no topo */
+  display: flex;  /* Põe os itens lado a lado */
+  flex-wrap: wrap;  /* Passa para a linha seguinte se faltar espaço */
+  gap: 8px;  /* Espaço entre itens */
+  margin-bottom: 10px;  /* Espaço por baixo do caminho */
+  font-size: 0.9rem;  /* Letra pequena */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+}  /* Fecha o caminho */
+
+.migalhas a::after {  /* Depois de cada link do caminho... */
+  content: "›";  /* ...aparece uma setinha */
+  margin-left: 8px;  /* Espaço antes da setinha */
+}  /* Fecha a setinha */
+
+.migalhas a:hover {  /* Link do caminho com o rato por cima */
+  color: var(--cor-primaria);  /* Fica laranja */
+}  /* Fecha o hover do caminho */
+
+.migalhas span {  /* Página onde estás */
+  font-weight: 600;  /* Letra semi-negrito */
+  color: var(--cor-texto);  /* Cor normal do texto */
+}  /* Fecha a página atual */
+
+.cabecalho-pagina h1 {  /* Título principal de cada página */
+  font-size: 2.2rem;  /* Tamanho grande */
+}  /* Fecha o título principal */
+
+.cabecalho-pagina p {  /* Frase por baixo do título */
+  margin: 6px 0 0;  /* Pequena margem em cima */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+}  /* Fecha a frase */
+
+.cabecalho-seccao {  /* Linha com título de secção e botão */
+  display: flex;  /* Título e botão lado a lado */
+  align-items: center;  /* Alinha ao centro na vertical */
+  justify-content: space-between;  /* Título à esquerda e botão à direita */
+  gap: 16px;  /* Espaço mínimo entre eles */
+  margin-bottom: 16px;  /* Espaço por baixo da linha */
+}  /* Fecha a linha de título */
+
+.cabecalho-seccao .titulo-seccao {  /* Título dentro dessa linha */
+  margin-bottom: 0;  /* Sem margem extra */
+}  /* Fecha o título da linha */
+
+.resultados {  /* Texto "14 receitas encontradas" */
+  margin: 0;  /* Sem margem */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+  font-weight: 600;  /* Letra semi-negrito */
+}  /* Fecha o texto de resultados */
+
+.vazio {  /* Aviso quando não há receitas */
+  padding: 48px 20px;  /* Espaço interior */
+  text-align: center;  /* Texto centrado */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+  border: 2px dashed var(--cor-borda);  /* Contorno a tracejado */
+  border-radius: 20px;  /* Cantos arredondados */
+}  /* Fecha o aviso vazio */
+
+.vazio a {  /* Link dentro do aviso vazio */
+  color: var(--cor-primaria);  /* Cor laranja */
+  font-weight: 700;  /* Negrito */
+}  /* Fecha o link do aviso */
+
+/* ---------- Botões ---------- */
+.btn-primario {  /* Botão laranja principal (serve para links e botões) */
+  display: inline-flex;  /* Ajusta-se ao texto */
+  align-items: center;  /* Centra na vertical */
+  justify-content: center;  /* Centra na horizontal */
+  gap: 8px;  /* Espaço entre texto e ícone */
+  padding: 12px 26px;  /* Espaço interior */
+  background: var(--cor-primaria);  /* Fundo laranja */
+  color: #fff;  /* Letra branca */
+  border: 2px solid var(--cor-primaria);  /* Contorno laranja */
+  border-radius: 12px;  /* Cantos arredondados */
+  font: inherit;  /* Usa o tipo de letra da página */
+  font-weight: 700;  /* Negrito */
+  cursor: pointer;  /* Mostra a mãozinha */
+  transition: background 0.2s, transform 0.2s;  /* Animação suave */
+}  /* Fecha o botão primário */
+
+.btn-primario:hover {  /* Botão primário com o rato por cima */
+  background: var(--cor-primaria-escura);  /* Laranja mais escuro */
+  border-color: var(--cor-primaria-escura);  /* Contorno mais escuro */
+  transform: translateY(-2px);  /* Sobe um bocadinho */
+}  /* Fecha o hover do botão primário */
+
+.btn-secundario {  /* Botão só com contorno */
+  display: inline-flex;  /* Ajusta-se ao texto */
+  align-items: center;  /* Centra na vertical */
+  justify-content: center;  /* Centra na horizontal */
+  padding: 12px 26px;  /* Espaço interior */
+  background: transparent;  /* Sem fundo */
+  color: var(--cor-primaria);  /* Letra laranja */
+  border: 2px solid var(--cor-primaria);  /* Contorno laranja */
+  border-radius: 12px;  /* Cantos arredondados */
+  font: inherit;  /* Usa o tipo de letra da página */
+  font-weight: 700;  /* Negrito */
+  cursor: pointer;  /* Mostra a mãozinha */
+  transition: background 0.2s, color 0.2s;  /* Mudança suave de cor */
+}  /* Fecha o botão secundário */
+
+.btn-secundario:hover {  /* Botão secundário com o rato por cima */
+  background: var(--cor-primaria);  /* Fundo laranja */
+  color: #fff;  /* Letra branca */
+}  /* Fecha o hover do botão secundário */
+
+.btn-largo {  /* Botão que ocupa a largura toda */
+  width: 100%;  /* Largura total */
+}  /* Fecha o botão largo */
+
+.btn-conta.ativo {  /* Botão "Minha conta" quando estás na página da conta */
+  background: var(--cor-primaria);  /* Fundo laranja */
+  color: #fff;  /* Letra branca */
+}  /* Fecha o botão da conta ativo */
+
+/* ---------- Cartões (extras) ---------- */
+.cartao-link {  /* Link invisível que cobre a imagem do cartão */
+  position: absolute;  /* Posicionado dentro da imagem */
+  inset: 0;  /* Ocupa a imagem toda */
+  display: flex;  /* Para centrar o emoji */
+  align-items: center;  /* Centra na vertical */
+  justify-content: center;  /* Centra na horizontal */
+}  /* Fecha o link da imagem */
+
+.btn-favorito {  /* Botão de favorito */
+  z-index: 2;  /* Fica por cima do link da imagem */
+}  /* Fecha o botão de favorito */
+
+.cartao-corpo h3 a:hover {  /* Título do cartão com o rato por cima */
+  color: var(--cor-primaria);  /* Fica laranja */
+}  /* Fecha o hover do título */
+
+/* ---------- Categorias (página de categoria) ---------- */
+.categoria.ativa {  /* Categoria onde estás */
+  background: var(--cor-realce);  /* Fundo laranja claro */
+  border-color: var(--cor-primaria);  /* Contorno laranja */
+  color: var(--cor-primaria);  /* Letra laranja */
+}  /* Fecha a categoria ativa */
+
+.banner-categoria {  /* Faixa grande no topo da página de categoria */
+  display: flex;  /* Emoji e texto lado a lado */
+  align-items: center;  /* Alinha ao centro na vertical */
+  gap: 28px;  /* Espaço entre emoji e texto */
+  padding: 32px 36px;  /* Espaço interior */
+  background: linear-gradient(135deg, var(--cor-realce), #fbd3b8);  /* Degradé laranja claro */
+  border-radius: 24px;  /* Cantos arredondados */
+}  /* Fecha a faixa */
+
+.banner-emoji {  /* Emoji grande da categoria */
+  font-size: 5rem;  /* Tamanho enorme */
+  line-height: 1;  /* Sem espaço extra à volta */
+}  /* Fecha o emoji grande */
+
+.banner-categoria h1 {  /* Nome da categoria */
+  font-size: 2.4rem;  /* Tamanho grande */
+}  /* Fecha o nome */
+
+.banner-categoria p {  /* Descrição da categoria */
+  margin: 6px 0 0;  /* Pequena margem em cima */
+  max-width: 560px;  /* Largura máxima do texto */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+}  /* Fecha a descrição */
+
+.banner-categoria .banner-contagem {  /* Pílula "4 receitas" */
+  display: inline-block;  /* Ajusta-se ao texto */
+  margin-top: 14px;  /* Espaço em cima */
+  padding: 4px 14px;  /* Espaço interior */
+  background: #fff;  /* Fundo branco */
+  border-radius: 999px;  /* Forma de pílula */
+  font-size: 0.85rem;  /* Letra pequena */
+  font-weight: 600;  /* Semi-negrito */
+  color: var(--cor-primaria);  /* Letra laranja */
+}  /* Fecha a pílula */
+
+/* ---------- Formulários ---------- */
+.filtros {  /* Caixa de filtros da página Explorar */
+  display: grid;  /* Organiza os blocos */
+  gap: 18px;  /* Espaço entre blocos */
+  padding: 22px;  /* Espaço interior */
+  background: var(--cor-superficie);  /* Fundo branco */
+  border: 1px solid var(--cor-borda);  /* Contorno claro */
+  border-radius: 20px;  /* Cantos arredondados */
+}  /* Fecha a caixa de filtros */
+
+.filtros-grelha {  /* Os quatro filtros lado a lado */
+  display: grid;  /* Organiza em grelha */
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));  /* Quantas colunas couberem */
+  gap: 16px;  /* Espaço entre filtros */
+}  /* Fecha a grelha de filtros */
+
+.filtros .btn-primario {  /* Botão "Aplicar filtros" */
+  justify-self: end;  /* Encosta à direita */
+}  /* Fecha o botão de filtros */
+
+.formulario {  /* Cartão grande do formulário Criar receita */
+  display: grid;  /* Organiza os blocos */
+  gap: 30px;  /* Espaço entre blocos */
+  padding: 32px;  /* Espaço interior */
+  background: var(--cor-superficie);  /* Fundo branco */
+  border: 1px solid var(--cor-borda);  /* Contorno claro */
+  border-radius: 24px;  /* Cantos arredondados */
+}  /* Fecha o cartão do formulário */
+
+.formulario fieldset {  /* Grupo de campos */
+  min-width: 0;  /* Evita que o grupo fique maior que o ecrã */
+  margin: 0;  /* Sem margem */
+  padding: 0;  /* Sem espaço interior */
+  border: none;  /* Sem contorno */
+}  /* Fecha o grupo */
+
+.formulario legend {  /* Título de cada grupo */
+  margin-bottom: 14px;  /* Espaço por baixo */
+  padding: 0;  /* Sem espaço interior */
+  font-family: Georgia, "Times New Roman", serif;  /* Letra com serifa */
+  font-size: 1.3rem;  /* Tamanho do título */
+  font-weight: 700;  /* Negrito */
+}  /* Fecha o título do grupo */
+
+.grelha-campos {  /* Campos em duas colunas */
+  display: grid;  /* Organiza em grelha */
+  grid-template-columns: repeat(2, minmax(0, 1fr));  /* Duas colunas iguais */
+  gap: 18px;  /* Espaço entre campos */
+}  /* Fecha a grelha de campos */
+
+.campo-largo {  /* Campo que ocupa as duas colunas */
+  grid-column: 1 / -1;  /* Da primeira à última coluna */
+}  /* Fecha o campo largo */
+
+.campo {  /* Um campo (etiqueta + caixa) */
+  display: flex;  /* Organiza etiqueta e caixa */
+  flex-direction: column;  /* Etiqueta em cima, caixa por baixo */
+  gap: 6px;  /* Espaço entre etiqueta e caixa */
+}  /* Fecha o campo */
+
+.campo label {  /* Etiqueta do campo */
+  font-size: 0.95rem;  /* Tamanho da etiqueta */
+  font-weight: 600;  /* Semi-negrito */
+}  /* Fecha a etiqueta */
+
+.campo input:not([type="checkbox"]),  /* Caixas de texto, números, email, etc. */
+.campo select,  /* Listas de escolha */
+.campo textarea {  /* Caixas de texto grandes */
+  width: 100%;  /* Largura total do campo */
+  padding: 12px 14px;  /* Espaço interior */
+  background: #fff;  /* Fundo branco */
+  border: 2px solid var(--cor-borda);  /* Contorno claro */
+  border-radius: 12px;  /* Cantos arredondados */
+  font: inherit;  /* Usa o tipo de letra da página */
+  color: var(--cor-texto);  /* Cor do texto escrito */
+  transition: border-color 0.2s, box-shadow 0.2s;  /* Mudança suave ao clicar */
+}  /* Fecha as caixas */
+
+.campo input:not([type="checkbox"]):focus,  /* Caixa clicada */
+.campo select:focus,  /* Lista clicada */
+.campo textarea:focus {  /* Caixa grande clicada */
+  outline: none;  /* Tira o contorno padrão do browser */
+  border-color: var(--cor-primaria);  /* Contorno laranja */
+  box-shadow: 0 0 0 4px var(--cor-realce);  /* Halo laranja claro */
+}  /* Fecha o foco das caixas */
+
+.campo textarea {  /* Caixas de texto grandes */
+  resize: vertical;  /* Só se pode esticar para baixo */
+}  /* Fecha as caixas grandes */
+
+.campo input[type="file"] {  /* Campo para escolher a foto */
+  background: var(--cor-fundo);  /* Fundo creme */
+}  /* Fecha o campo da foto */
+
+.dica {  /* Texto de ajuda por baixo de um campo */
+  margin: 0;  /* Sem margem */
+  font-size: 0.85rem;  /* Letra pequena */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+}  /* Fecha a dica */
+
+.linha-ingrediente {  /* Linha de um ingrediente */
+  display: grid;  /* Organiza em colunas */
+  grid-template-columns: 120px 170px minmax(0, 1fr) 44px;  /* Quantidade, unidade, nome e botão ✕ */
+  gap: 10px;  /* Espaço entre colunas */
+  margin-bottom: 10px;  /* Espaço entre linhas */
+}  /* Fecha a linha de ingrediente */
+
+.btn-remover {  /* Botão ✕ que remove o ingrediente */
+  align-self: stretch;  /* Fica com a altura da linha */
+  border: 2px solid var(--cor-borda);  /* Contorno claro */
+  border-radius: 12px;  /* Cantos arredondados */
+  background: #fff;  /* Fundo branco */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+  font-size: 1rem;  /* Tamanho do ✕ */
+  cursor: pointer;  /* Mostra a mãozinha */
+  transition: color 0.2s, border-color 0.2s;  /* Mudança suave de cor */
+}  /* Fecha o botão remover */
+
+.btn-remover:hover {  /* Botão remover com o rato por cima */
+  color: #b3261e;  /* Fica vermelho */
+  border-color: #b3261e;  /* Contorno vermelho */
+}  /* Fecha o hover do botão remover */
+
+.btn-adicionar {  /* Botão "+ Adicionar ingrediente" */
+  padding: 10px 20px;  /* Espaço interior */
+  background: transparent;  /* Sem fundo */
+  border: 2px dashed var(--cor-primaria);  /* Contorno a tracejado laranja */
+  border-radius: 12px;  /* Cantos arredondados */
+  color: var(--cor-primaria);  /* Letra laranja */
+  font: inherit;  /* Usa o tipo de letra da página */
+  font-weight: 700;  /* Negrito */
+  cursor: pointer;  /* Mostra a mãozinha */
+}  /* Fecha o botão adicionar */
+
+.btn-adicionar:hover {  /* Botão adicionar com o rato por cima */
+  background: var(--cor-realce);  /* Fundo laranja claro */
+}  /* Fecha o hover do botão adicionar */
+
+.acoes-formulario {  /* Linha com os botões Cancelar e Publicar */
+  display: flex;  /* Botões lado a lado */
+  justify-content: flex-end;  /* Encostados à direita */
+  gap: 12px;  /* Espaço entre botões */
+}  /* Fecha a linha de botões */
+
+/* ---------- Criar conta e Entrar ---------- */
+.pagina-auth {  /* Página com uma caixa centrada */
+  display: flex;  /* Para centrar a caixa */
+  justify-content: center;  /* Centra na horizontal */
+  padding: 48px 20px 60px;  /* Espaço interior */
+}  /* Fecha a página de autenticação */
+
+.caixa-auth {  /* Caixa do formulário de conta */
+  width: 100%;  /* Ocupa a largura disponível */
+  max-width: 460px;  /* Mas nunca mais de 460px */
+  padding: 36px;  /* Espaço interior */
+  background: var(--cor-superficie);  /* Fundo branco */
+  border: 1px solid var(--cor-borda);  /* Contorno claro */
+  border-radius: 24px;  /* Cantos arredondados */
+  box-shadow: var(--sombra);  /* Sombra suave */
+  text-align: center;  /* Títulos centrados */
+}  /* Fecha a caixa */
+
+.auth-emoji {  /* Emoji no topo da caixa */
+  display: block;  /* Ocupa a sua própria linha */
+  font-size: 3rem;  /* Tamanho grande */
+}  /* Fecha o emoji */
+
+.auth-sub {  /* Frase por baixo do título */
+  margin: 6px 0 24px;  /* Margens de cima e de baixo */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+}  /* Fecha a frase */
+
+.caixa-auth form {  /* Formulário dentro da caixa */
+  display: grid;  /* Organiza os campos */
+  gap: 16px;  /* Espaço entre campos */
+  text-align: left;  /* Etiquetas alinhadas à esquerda */
+}  /* Fecha o formulário */
+
+.campo-checkbox {  /* Linha com a caixinha de aceitar os termos */
+  display: flex;  /* Caixinha e texto lado a lado */
+  align-items: flex-start;  /* Alinha pelo topo */
+  gap: 10px;  /* Espaço entre caixinha e texto */
+  font-size: 0.9rem;  /* Letra pequena */
+}  /* Fecha a linha da caixinha */
+
+.campo-checkbox input {  /* A caixinha */
+  margin-top: 4px;  /* Alinha com a primeira linha de texto */
+  accent-color: var(--cor-primaria);  /* Cor laranja */
+}  /* Fecha a caixinha */
+
+.auth-rodape {  /* Texto "Já tens conta?" */
+  margin: 22px 0 0;  /* Espaço em cima */
+  font-size: 0.95rem;  /* Tamanho da letra */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+}  /* Fecha o texto */
+
+.auth-rodape a {  /* Link dentro desse texto */
+  color: var(--cor-primaria);  /* Cor laranja */
+  font-weight: 700;  /* Negrito */
+}  /* Fecha o link */
+
+/* ---------- Minha conta ---------- */
+.perfil {  /* Cartão com os dados da pessoa */
+  display: flex;  /* Foto, dados e botão lado a lado */
+  align-items: center;  /* Alinha ao centro na vertical */
+  gap: 24px;  /* Espaço entre blocos */
+  padding: 28px;  /* Espaço interior */
+  background: var(--cor-superficie);  /* Fundo branco */
+  border: 1px solid var(--cor-borda);  /* Contorno claro */
+  border-radius: 24px;  /* Cantos arredondados */
+}  /* Fecha o cartão do perfil */
+
+.avatar {  /* Círculo com a inicial do nome */
+  display: flex;  /* Para centrar a letra */
+  align-items: center;  /* Centra na vertical */
+  justify-content: center;  /* Centra na horizontal */
+  flex-shrink: 0;  /* Não deixa o círculo encolher */
+  width: 88px;  /* Largura do círculo */
+  height: 88px;  /* Altura do círculo */
+  border-radius: 50%;  /* Forma redonda */
+  background: var(--cor-primaria);  /* Fundo laranja */
+  color: #fff;  /* Letra branca */
+  font-family: Georgia, "Times New Roman", serif;  /* Letra com serifa */
+  font-size: 2.4rem;  /* Tamanho da inicial */
+  font-weight: 700;  /* Negrito */
+}  /* Fecha o avatar */
+
+.perfil-info h1 {  /* Nome da pessoa */
+  font-size: 1.8rem;  /* Tamanho do nome */
+}  /* Fecha o nome */
+
+.perfil-info p {  /* Email e data de registo */
+  margin: 2px 0 0;  /* Pequena margem em cima */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+}  /* Fecha o email e a data */
+
+.perfil-acoes {  /* Botão "Terminar sessão" */
+  margin-left: auto;  /* Encosta à direita */
+}  /* Fecha o botão */
+
+.estatisticas {  /* Três números de resumo */
+  display: grid;  /* Organiza em grelha */
+  grid-template-columns: repeat(3, minmax(0, 1fr));  /* Três colunas iguais */
+  gap: 16px;  /* Espaço entre caixas */
+}  /* Fecha as estatísticas */
+
+.estatistica {  /* Uma caixa de estatística */
+  padding: 22px;  /* Espaço interior */
+  background: var(--cor-superficie);  /* Fundo branco */
+  border: 1px solid var(--cor-borda);  /* Contorno claro */
+  border-radius: 20px;  /* Cantos arredondados */
+  text-align: center;  /* Texto centrado */
+}  /* Fecha a caixa de estatística */
+
+.estatistica-numero {  /* O número grande */
+  display: block;  /* Ocupa a sua própria linha */
+  font-family: Georgia, "Times New Roman", serif;  /* Letra com serifa */
+  font-size: 2.4rem;  /* Tamanho grande */
+  font-weight: 700;  /* Negrito */
+  color: var(--cor-primaria);  /* Cor laranja */
+  line-height: 1.1;  /* Linha mais apertada */
+}  /* Fecha o número */
+
+.estatistica-texto {  /* Legenda do número */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+  font-size: 0.9rem;  /* Letra pequena */
+}  /* Fecha a legenda */
+
+.selo-favoritos {  /* Etiqueta "🔖 24" no canto da imagem */
+  position: absolute;  /* Posicionada dentro da imagem */
+  top: 10px;  /* Distância ao topo */
+  left: 10px;  /* Distância à esquerda */
+  z-index: 2;  /* Fica por cima do link da imagem */
+  padding: 4px 12px;  /* Espaço interior */
+  background: var(--cor-primaria);  /* Fundo laranja */
+  color: #fff;  /* Letra branca */
+  border-radius: 999px;  /* Forma de pílula */
+  font-size: 0.8rem;  /* Letra pequena */
+  font-weight: 700;  /* Negrito */
+}  /* Fecha a etiqueta */
+
+.cartao-estatistica {  /* Frase "24 pessoas guardaram" */
+  margin: 10px 0 0;  /* Espaço em cima */
+  font-size: 0.85rem;  /* Letra pequena */
+  font-weight: 600;  /* Semi-negrito */
+  color: var(--cor-primaria);  /* Cor laranja */
+}  /* Fecha a frase */
+
+.cartao-acoes {  /* Botões Editar e Apagar */
+  display: flex;  /* Lado a lado */
+  gap: 8px;  /* Espaço entre botões */
+  margin-top: 12px;  /* Espaço em cima */
+}  /* Fecha os botões do cartão */
+
+.btn-pequeno {  /* Botão pequeno em pílula */
+  padding: 6px 16px;  /* Espaço interior */
+  background: #fff;  /* Fundo branco */
+  border: 1px solid var(--cor-borda);  /* Contorno claro */
+  border-radius: 999px;  /* Forma de pílula */
+  font: inherit;  /* Usa o tipo de letra da página */
+  font-size: 0.85rem;  /* Letra pequena */
+  font-weight: 600;  /* Semi-negrito */
+  cursor: pointer;  /* Mostra a mãozinha */
+  transition: background 0.2s, color 0.2s;  /* Mudança suave de cor */
+}  /* Fecha o botão pequeno */
+
+.btn-pequeno:hover {  /* Botão pequeno com o rato por cima */
+  background: var(--cor-realce);  /* Fundo laranja claro */
+  color: var(--cor-primaria);  /* Letra laranja */
+}  /* Fecha o hover do botão pequeno */
+
+.btn-pequeno.perigo {  /* Botão pequeno de apagar */
+  color: #b3261e;  /* Letra vermelha */
+}  /* Fecha o botão de apagar */
+
+.btn-pequeno.perigo:hover {  /* Botão de apagar com o rato por cima */
+  background: #fdeceb;  /* Fundo vermelho claro */
+  color: #b3261e;  /* Letra vermelha */
+}  /* Fecha o hover do botão de apagar */
+
+/* ---------- Detalhes da receita ---------- */
+.detalhe-topo {  /* Parte de cima: imagem e informação */
+  display: grid;  /* Organiza em duas colunas */
+  grid-template-columns: repeat(2, minmax(0, 1fr));  /* Duas colunas iguais */
+  gap: 36px;  /* Espaço entre colunas */
+  align-items: center;  /* Alinha ao centro na vertical */
+}  /* Fecha a parte de cima */
+
+.detalhe-imagem {  /* Imagem grande da receita */
+  display: flex;  /* Para centrar o emoji */
+  align-items: center;  /* Centra na vertical */
+  justify-content: center;  /* Centra na horizontal */
+  aspect-ratio: 4 / 3;  /* Proporção da imagem */
+  background: linear-gradient(135deg, #fde9dd, #fbd3b8);  /* Degradé laranja claro */
+  border-radius: 24px;  /* Cantos arredondados */
+  font-size: 9rem;  /* Emoji enorme */
+}  /* Fecha a imagem grande */
+
+.detalhe-imagem img {  /* Foto real (quando a usares) */
+  width: 100%;  /* Largura total */
+  height: 100%;  /* Altura total */
+  object-fit: cover;  /* Corta sem deformar */
+  border-radius: 24px;  /* Cantos arredondados */
+}  /* Fecha a foto real */
+
+.selo-categoria {  /* Etiqueta com o nome da categoria */
+  display: inline-block;  /* Ajusta-se ao texto */
+  padding: 4px 14px;  /* Espaço interior */
+  background: var(--cor-realce);  /* Fundo laranja claro */
+  color: var(--cor-primaria);  /* Letra laranja */
+  border-radius: 999px;  /* Forma de pílula */
+  font-size: 0.85rem;  /* Letra pequena */
+  font-weight: 600;  /* Semi-negrito */
+}  /* Fecha a etiqueta da categoria */
+
+.detalhe-info h1 {  /* Título da receita */
+  margin: 12px 0 6px;  /* Margens de cima e de baixo */
+  font-size: 2.4rem;  /* Tamanho grande */
+}  /* Fecha o título da receita */
+
+.detalhe-autor {  /* Linha "Por ... · data" */
+  margin: 0;  /* Sem margem */
+  font-size: 0.9rem;  /* Letra pequena */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+}  /* Fecha a linha do autor */
+
+.detalhe-descricao {  /* Descrição da receita */
+  margin: 14px 0;  /* Margens de cima e de baixo */
+}  /* Fecha a descrição */
+
+.detalhe-chips {  /* Lista de tempo, porções e dificuldade */
+  display: flex;  /* Itens lado a lado */
+  flex-wrap: wrap;  /* Passa à linha seguinte se faltar espaço */
+  gap: 10px;  /* Espaço entre itens */
+  margin-bottom: 20px;  /* Espaço por baixo */
+}  /* Fecha a lista de chips */
+
+.detalhe-chips li {  /* Cada chip */
+  padding: 8px 16px;  /* Espaço interior */
+  background: var(--cor-superficie);  /* Fundo branco */
+  border: 1px solid var(--cor-borda);  /* Contorno claro */
+  border-radius: 999px;  /* Forma de pílula */
+  font-weight: 600;  /* Semi-negrito */
+  font-size: 0.9rem;  /* Letra pequena */
+}  /* Fecha o chip */
+
+.detalhe-botoes {  /* Botão guardar e contagem */
+  display: flex;  /* Lado a lado */
+  flex-wrap: wrap;  /* Passa à linha seguinte se faltar espaço */
+  align-items: center;  /* Alinha ao centro na vertical */
+  gap: 14px;  /* Espaço entre itens */
+}  /* Fecha a linha do botão */
+
+.btn-guardar {  /* Botão grande "Guardar nos favoritos" */
+  display: inline-flex;  /* Ícone e texto lado a lado */
+  align-items: center;  /* Alinha ao centro na vertical */
+  gap: 10px;  /* Espaço entre ícone e texto */
+  padding: 12px 24px;  /* Espaço interior */
+  background: #fff;  /* Fundo branco */
+  color: var(--cor-primaria);  /* Letra laranja */
+  border: 2px solid var(--cor-primaria);  /* Contorno laranja */
+  border-radius: 999px;  /* Forma de pílula */
+  font: inherit;  /* Usa o tipo de letra da página */
+  font-weight: 700;  /* Negrito */
+  cursor: pointer;  /* Mostra a mãozinha */
+  transition: background 0.2s, color 0.2s;  /* Mudança suave de cor */
+}  /* Fecha o botão guardar */
+
+.btn-guardar svg {  /* Ícone do marcador no botão grande */
+  width: 18px;  /* Largura do ícone */
+  height: 18px;  /* Altura do ícone */
+  fill: none;  /* Vazio por dentro */
+  stroke: currentColor;  /* Usa a cor da letra do botão */
+  stroke-width: 2;  /* Espessura do traço */
+  stroke-linejoin: round;  /* Cantos do traço arredondados */
+}  /* Fecha o ícone */
+
+.btn-guardar:hover {  /* Botão guardar com o rato por cima */
+  background: var(--cor-realce);  /* Fundo laranja claro */
+}  /* Fecha o hover do botão guardar */
+
+.btn-guardar.ativo {  /* Botão guardar quando a receita já está guardada */
+  background: var(--cor-primaria);  /* Fundo laranja */
+  color: #fff;  /* Letra branca */
+}  /* Fecha o botão guardar ativo */
+
+.btn-guardar.ativo svg {  /* Ícone quando já está guardada */
+  fill: #fff;  /* Marcador preenchido a branco */
+}  /* Fecha o ícone ativo */
+
+.detalhe-contagem {  /* Texto "24 pessoas guardaram" */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+  font-size: 0.9rem;  /* Letra pequena */
+}  /* Fecha o texto de contagem */
+
+.detalhe-corpo {  /* Ingredientes e modo de preparo */
+  display: grid;  /* Organiza em duas colunas */
+  grid-template-columns: 340px minmax(0, 1fr);  /* Ingredientes mais estreitos e passos mais largos */
+  gap: 32px;  /* Espaço entre colunas */
+  align-items: start;  /* Alinha as caixas pelo topo */
+}  /* Fecha o corpo da receita */
+
+.caixa {  /* Caixa branca genérica */
+  padding: 26px;  /* Espaço interior */
+  background: var(--cor-superficie);  /* Fundo branco */
+  border: 1px solid var(--cor-borda);  /* Contorno claro */
+  border-radius: 20px;  /* Cantos arredondados */
+}  /* Fecha a caixa */
+
+.lista-ingredientes li {  /* Cada ingrediente */
+  display: flex;  /* Quantidade e nome lado a lado */
+  gap: 12px;  /* Espaço entre quantidade e nome */
+  padding: 10px 0;  /* Espaço em cima e em baixo */
+  border-bottom: 1px dashed var(--cor-borda);  /* Linha tracejada a separar */
+}  /* Fecha o ingrediente */
+
+.lista-ingredientes li:last-child {  /* Último ingrediente */
+  border-bottom: none;  /* Sem linha por baixo */
+}  /* Fecha o último ingrediente */
+
+.qtd {  /* Quantidade do ingrediente */
+  min-width: 80px;  /* Largura mínima para alinhar os nomes */
+  font-weight: 700;  /* Negrito */
+  color: var(--cor-primaria);  /* Cor laranja */
+}  /* Fecha a quantidade */
+
+.passos {  /* Lista numerada do modo de preparo */
+  display: grid;  /* Organiza os passos */
+  gap: 18px;  /* Espaço entre passos */
+  margin: 0;  /* Sem margem */
+  padding: 0;  /* Sem espaço interior */
+  list-style: none;  /* Sem números automáticos */
+  counter-reset: passo;  /* Começa a contar os passos do zero */
+}  /* Fecha a lista de passos */
+
+.passos li {  /* Cada passo */
+  display: flex;  /* Número e texto lado a lado */
+  gap: 14px;  /* Espaço entre número e texto */
+  counter-increment: passo;  /* Soma 1 ao contador */
+}  /* Fecha o passo */
+
+.passos li::before {  /* Círculo com o número do passo */
+  content: counter(passo);  /* Escreve o número do passo */
+  display: flex;  /* Para centrar o número */
+  align-items: center;  /* Centra na vertical */
+  justify-content: center;  /* Centra na horizontal */
+  flex-shrink: 0;  /* Não deixa o círculo encolher */
+  width: 34px;  /* Largura do círculo */
+  height: 34px;  /* Altura do círculo */
+  border-radius: 50%;  /* Forma redonda */
+  background: var(--cor-primaria);  /* Fundo laranja */
+  color: #fff;  /* Número branco */
+  font-weight: 700;  /* Negrito */
+}  /* Fecha o círculo do número */
+
+.avaliacoes h2 {  /* Título "Avaliações" */
+  margin-bottom: 16px;  /* Espaço por baixo */
+}  /* Fecha o título */
+
+.avaliacao-resumo {  /* Média das notas */
+  display: flex;  /* Número e estrelas lado a lado */
+  align-items: center;  /* Alinha ao centro na vertical */
+  gap: 14px;  /* Espaço entre itens */
+  margin-bottom: 20px;  /* Espaço por baixo */
+}  /* Fecha o resumo */
+
+.avaliacao-media {  /* Número da média */
+  font-family: Georgia, "Times New Roman", serif;  /* Letra com serifa */
+  font-size: 3rem;  /* Tamanho grande */
+  font-weight: 700;  /* Negrito */
+  line-height: 1;  /* Sem espaço extra */
+}  /* Fecha o número da média */
+
+.estrelas {  /* Estrelas das notas */
+  color: #f5a623;  /* Cor dourada */
+  letter-spacing: 2px;  /* Espaço entre estrelas */
+}  /* Fecha as estrelas */
+
+.comentario {  /* Um comentário de uma pessoa */
+  padding: 16px 0;  /* Espaço em cima e em baixo */
+  border-top: 1px solid var(--cor-borda);  /* Linha por cima */
+}  /* Fecha o comentário */
+
+.comentario-topo {  /* Nome e estrelas do comentário */
+  display: flex;  /* Lado a lado */
+  justify-content: space-between;  /* Nome à esquerda e estrelas à direita */
+  gap: 12px;  /* Espaço mínimo entre eles */
+}  /* Fecha o topo do comentário */
+
+.comentario p {  /* Texto do comentário */
+  margin: 6px 0 0;  /* Espaço em cima */
+}  /* Fecha o texto */
+
+.formulario-avaliacao {  /* Formulário para avaliar */
+  display: grid;  /* Organiza os campos */
+  gap: 14px;  /* Espaço entre campos */
+  margin-bottom: 20px;  /* Espaço por baixo, antes dos comentários */
+}  /* Fecha o formulário de avaliação */
+
+.formulario-avaliacao .btn-primario {  /* Botão "Enviar avaliação" */
+  justify-self: start;  /* Encosta à esquerda */
+}  /* Fecha o botão de avaliação */
+
+/* ---------- Rodapé ---------- */
+.rodape {  /* Rodapé do site */
+  margin-top: 40px;  /* Espaço em cima */
+  padding: 28px 20px;  /* Espaço interior */
+  border-top: 1px solid var(--cor-borda);  /* Linha por cima */
+  text-align: center;  /* Texto centrado */
+  font-size: 0.9rem;  /* Letra pequena */
+  color: var(--cor-texto-suave);  /* Cor discreta */
+}  /* Fecha o rodapé */
+
+.rodape p {  /* Texto do rodapé */
+  margin: 0;  /* Sem margem */
+}  /* Fecha o texto */
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 900px) {  /* Regras para ecrãs até 900px */
+  .conteudo-pagina {  /* Área principal das páginas novas */
+    padding: 24px 20px 48px;  /* Menos espaço nos lados */
+  }  /* Fecha a área principal */
+  .detalhe-topo,  /* Parte de cima da receita */
+  .detalhe-corpo {  /* Corpo da receita */
+    grid-template-columns: 1fr;  /* Passam a uma só coluna */
+  }  /* Fecha as colunas */
+}  /* Fecha as regras até 900px */
+
+@media (max-width: 700px) {  /* Regras para ecrãs até 700px */
+  .grelha-campos {  /* Campos do formulário */
+    grid-template-columns: 1fr;  /* Passam a uma só coluna */
+  }  /* Fecha a grelha de campos */
+  .linha-ingrediente {  /* Linha de ingrediente */
+    grid-template-columns: repeat(2, minmax(0, 1fr));  /* Quantidade e unidade lado a lado */
+  }  /* Fecha a linha de ingrediente */
+  .linha-ingrediente .campo:nth-child(3) {  /* Campo do nome do ingrediente */
+    grid-column: 1 / -1;  /* Ocupa a linha toda */
+  }  /* Fecha o campo do nome */
+  .linha-ingrediente .btn-remover {  /* Botão ✕ */
+    grid-column: 1 / -1;  /* Ocupa a linha toda */
+    padding: 8px;  /* Espaço interior */
+  }  /* Fecha o botão ✕ */
+  .formulario {  /* Cartão do formulário */
+    padding: 22px;  /* Menos espaço interior */
+  }  /* Fecha o cartão */
+  .perfil {  /* Cartão do perfil */
+    flex-direction: column;  /* Empilha os blocos */
+    text-align: center;  /* Texto centrado */
+  }  /* Fecha o perfil */
+  .perfil-acoes {  /* Botão terminar sessão */
+    margin-left: 0;  /* Deixa de ficar encostado à direita */
+  }  /* Fecha o botão */
+  .estatisticas {  /* Números de resumo */
+    grid-template-columns: 1fr;  /* Passam a uma só coluna */
+  }  /* Fecha as estatísticas */
+  .banner-categoria {  /* Faixa da categoria */
+    flex-direction: column;  /* Emoji por cima do texto */
+    text-align: center;  /* Texto centrado */
+  }  /* Fecha a faixa */
+  .cabecalho-seccao {  /* Título de secção com botão */
+    flex-direction: column;  /* Empilha título e botão */
+    align-items: flex-start;  /* Alinha à esquerda */
+  }  /* Fecha a linha de título */
+}  /* Fecha as regras até 700px */
+
